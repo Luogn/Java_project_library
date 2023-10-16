@@ -14,10 +14,11 @@ public class DictionaryManagement {
     static final String filepath_write = "D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\words_alpha.txt";
 
     public static void insertFromCommandline() {
-        int numOfWords = new Scanner(System.in).nextInt();
+        Scanner sc = new Scanner(System.in);
+        int numOfWords = Integer.parseInt(sc.nextLine());
         for(int i=0;i<numOfWords;i++) {
-            String engWords = new Scanner(System.in).nextLine();
-            String meaning = new Scanner(System.in).nextLine();
+            String engWords = sc.nextLine();
+            String meaning = sc.nextLine();
             Word rand = new Word(engWords, meaning);
             // for(int j=0;j<Dictionary.getSize();i++) {
             //     if(!(Dictionary.getWordList().get(j).equals(rand))) {
@@ -26,6 +27,7 @@ public class DictionaryManagement {
             // }
             addWord(rand);
         }
+        sc.close();
     }
 
     public static void insertFromFile() throws Exception{
@@ -101,5 +103,9 @@ public class DictionaryManagement {
             }
             i--;
         }
+    }
+
+    public static void update() {
+
     }
 }

@@ -49,8 +49,10 @@ public class DictionaryCommandLine {
         System.out.println("Your Action: ");
 
         Scanner sc = new Scanner(System.in);
-        int noAction = sc.nextInt();
-        sc.close();
+        int noAction = Integer.parseInt(new Scanner(System.in).nextLine());
+
+
+        System.out.println(noAction);
 
         if(noAction == 0) {
             return;
@@ -58,37 +60,55 @@ public class DictionaryCommandLine {
 
         if(noAction == 1) {
             DictionaryManagement.insertFromCommandline();
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
 
-        if(noAction ==2) {
+        if(noAction == 2) {
             System.out.println("Put in word you want to remove from dictionary: ");
-            String word = new Scanner(System.in).nextLine();
+            String word = sc.nextLine();
             DictionaryManagement.removeWord(word);
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
 
         if(noAction == 3) {
+            // Cần thêm hàm update được gọi từ dictionaryManagement
 
+
+            System.out.println("Your action has been done!");
         }
 
         if(noAction == 4) {
             showAllWord();
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
 
         if(noAction == 5) {
-            String word = new Scanner(System.in).nextLine();
+            String word = sc.nextLine();
             DictionaryManagement.dictionaryLookup(word);
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
         if(noAction == 6) {
-            String word = new Scanner(System.in).nextLine();
+            String word = sc.nextLine();
             dictionarySearcher(word);
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
 
         if(noAction == 8) {
             DictionaryManagement.insertFromFile();
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
 
         if(noAction == 9) {
             DictionaryManagement.dictionaryExportToFile();
+            dictionaryAdvanced();
+            System.out.println("Your action has been done!");
         }
+        sc.close();
     }
 };
