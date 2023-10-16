@@ -1,0 +1,10 @@
+Dad|Bố
+Daily|Hàng ngày
+Damage|Thiệt hại
+Dance|Nhảy múa
+Danger|Nguy hiểm
+Dark|Tối
+Data|Dữ liệu
+Date|Ngày tháng
+Daughter|Con gái
+Day|Ngày
