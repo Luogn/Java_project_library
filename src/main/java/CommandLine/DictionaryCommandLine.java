@@ -60,6 +60,16 @@ public class DictionaryCommandLine {
             DictionaryManagement.insertFromCommandline();
         }
 
+        if(noAction ==2) {
+            System.out.println("Put in word you want to remove from dictionary: ");
+            String word = new Scanner(System.in).nextLine();
+            DictionaryManagement.removeWord(word);
+        }
+
+        if(noAction == 3) {
+
+        }
+
         if(noAction == 4) {
             showAllWord();
         }

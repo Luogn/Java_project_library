@@ -24,7 +24,7 @@ public class DictionaryManagement {
             //         Dictionary.addWord(rand);
             //     }
             // }
-            Dictionary.addWord(rand);
+            addWord(rand);
         }
     }
 
@@ -45,7 +45,7 @@ public class DictionaryManagement {
 
                 Word rand = new Word(words[0].trim(), words[1].trim());
 
-                Dictionary.addWord(rand);
+                addWord(rand);
             }
             
         } catch (IOException e) {
@@ -81,7 +81,7 @@ public class DictionaryManagement {
 
     }
 
-    public void dictionaryLookup(String wordTarget) {
+    public static void dictionaryLookup(String wordTarget) {
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
@@ -90,11 +90,16 @@ public class DictionaryManagement {
         }
     }
 
-    public void addWord(Word word) {
-        Dictionary.addWord(word);
+    public static void addWord(Word word) {
+        Dictionary.getWordList().add(word);
     }
 
-    public void removeWord(String word) {
-        Dictionary.removeWord(word);
+    public static void removeWord(String word) {
+        for (int i = 0; i < Dictionary.getSize(); i++) {
+            if (Dictionary.getWordList().get(i).getWordTarget().equals(word)) {
+                Dictionary.getWordList().remove(i);
+            }
+            i--;
+        }
     }
 }
