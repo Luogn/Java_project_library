@@ -29,8 +29,8 @@ public class DictionaryCommandLine {
             }
         }
 
-        for(int i=0;i<searchList.size();i++) {
-            System.out.println(searchList.get(i));
+        for (String s : searchList) {
+            System.out.println(s);
         }
     }
 
@@ -57,11 +57,20 @@ public class DictionaryCommandLine {
         }
 
         if(noAction == 1) {
-
+            DictionaryManagement.insertFromCommandline();
         }
 
         if(noAction == 4) {
             showAllWord();
+        }
+
+        if(noAction == 5) {
+            String word = new Scanner(System.in).nextLine();
+            DictionaryManagement.dictionaryLookup(word);
+        }
+        if(noAction == 6) {
+            String word = new Scanner(System.in).nextLine();
+            dictionarySearcher(word);
         }
 
         if(noAction == 8) {
