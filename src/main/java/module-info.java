@@ -1,4 +1,4 @@
-module com.example.java_project_library {
+module AppScreen {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,6 @@ module com.example.java_project_library {
     requires org.kordamp.bootstrapfx.core;
     requires java.logging;
 
-    opens com.example.java_project_library to javafx.fxml;
-    exports com.example.java_project_library;
+    opens AppScreen to javafx.fxml;
+    exports AppScreen;
 }
