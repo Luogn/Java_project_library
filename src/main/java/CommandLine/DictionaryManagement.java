@@ -2,7 +2,7 @@ package CommandLine;
 
 import java.util.Scanner;
 import java.io.BufferedReader;
-// import java.io.FileReader;
+//import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -84,6 +84,18 @@ public class DictionaryManagement {
     }
 
     public static void dictionaryLookup(String wordTarget) {
+        int cnt = 0;
+        for(int i =0 ;i<Dictionary.getSize();i++) {
+            if(Dictionary.getWordList().get(i).getWordTarget().equals(wordTarget)) {
+                cnt++;
+            }
+        }
+
+        if(cnt != Dictionary.getSize()) {
+            System.out.println("Word not found!");
+            return;
+        }
+
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
@@ -100,12 +112,36 @@ public class DictionaryManagement {
         for (int i = 0; i < Dictionary.getSize(); i++) {
             if (Dictionary.getWordList().get(i).getWordTarget().equals(word)) {
                 Dictionary.getWordList().remove(i);
+                i--;
             }
-            i--;
         }
     }
 
-    public static void update() {
+    public static void update(String wordE,String wordM, String action) {
+        int cnt = 0;
+        for(int i =0 ;i<Dictionary.getSize();i++) {
+            if(Dictionary.getWordList().get(i).getWordTarget().equals(wordE)) {
+                cnt++;
+            }
+        }
 
+        if(cnt != Dictionary.getSize()) {
+            System.out.println("Word not found!");
+            return;
+        }
+
+        for(int i =0 ;i<Dictionary.getSize();i++) {
+            if(Dictionary.getWordList().get(i).getWordTarget().equals(wordE))
+            {
+                if(action.equals("ADD")) {
+                    String tmp = Dictionary.getWordList().get(i).getWordExplain() + " " + wordM;
+                    Dictionary.getWordList().get(i).setWordExplain(tmp);
+                }
+
+                if(action.equals("CHANGE")) {
+                    Dictionary.getWordList().get(i).setWordExplain(wordM);
+                }
+            }
+        }
     }
 }

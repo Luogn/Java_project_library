@@ -35,7 +35,6 @@ public class DictionaryCommandLine {
     }
 
     public static void dictionaryAdvanced() throws Exception {
-        System.out.println("Welcome to My Application!");
         System.out.println("[0] Exit");
         System.out.println("[1] Add");
         System.out.println("[2] Remove");
@@ -60,54 +59,62 @@ public class DictionaryCommandLine {
 
         if(noAction == 1) {
             DictionaryManagement.insertFromCommandline();
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
+
         }
 
         if(noAction == 2) {
             System.out.println("Put in word you want to remove from dictionary: ");
             String word = sc.nextLine();
             DictionaryManagement.removeWord(word);
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
+
         }
 
         if(noAction == 3) {
             // Cần thêm hàm update được gọi từ dictionaryManagement
-
-
+            System.out.println("Choose what you want to do:\nType ADD to add more meaning\nType CHANGE to change meaning");
+            String inputAct = sc.nextLine();
+            System.out.println("Choose the word you want to update:");
+            String engWord = sc.nextLine();
+            String vietMeaning = sc.nextLine();
+            DictionaryManagement.update(engWord, vietMeaning, inputAct);
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
         }
 
         if(noAction == 4) {
             showAllWord();
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
         }
 
         if(noAction == 5) {
             String word = sc.nextLine();
             DictionaryManagement.dictionaryLookup(word);
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
         }
         if(noAction == 6) {
             String word = sc.nextLine();
             dictionarySearcher(word);
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
         }
 
         if(noAction == 8) {
             DictionaryManagement.insertFromFile();
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
         }
 
         if(noAction == 9) {
             DictionaryManagement.dictionaryExportToFile();
-            dictionaryAdvanced();
             System.out.println("Your action has been done!");
+            dictionaryAdvanced();
+
         }
         sc.close();
     }
