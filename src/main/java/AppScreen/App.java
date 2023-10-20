@@ -16,17 +16,18 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DictionaryController.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                    ("/Controller/DictionaryController.fxml"));
 
-            Image icon = new Image("D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\snow_icon.png");
-            stage.getIcons().add(icon);
+//            Image icon = new Image("D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\snow_icon.png");
+//            stage.getIcons().add(icon);
 
-            stage.setTitle("Demo Window");
-            stage.setResizable(false);
+//            stage.setTitle("Demo Window");
+//            stage.setResizable(false);
+//
+//            Group root = new Group();
 
-            Group root = new Group();
-
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600, Color.BLACK);
+            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
 
             stage.setScene(scene);
             stage.show();
