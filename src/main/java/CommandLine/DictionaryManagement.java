@@ -15,16 +15,15 @@ public class DictionaryManagement {
 
     public static void insertFromCommandline() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("please enter the number of words you want to add:");
         int numOfWords = Integer.parseInt(sc.nextLine());
+
         for(int i=0;i<numOfWords;i++) {
+            System.out.println("the word you want to add");
             String engWords = sc.nextLine();
+            System.out.println("its meaning:");
             String meaning = sc.nextLine();
             Word rand = new Word(engWords, meaning);
-            // for(int j=0;j<Dictionary.getSize();i++) {
-            //     if(!(Dictionary.getWordList().get(j).equals(rand))) {
-            //         Dictionary.addWord(rand);
-            //     }
-            // }
             addWord(rand);
         }
         sc.close();
@@ -86,12 +85,12 @@ public class DictionaryManagement {
     public static void dictionaryLookup(String wordTarget) {
         int cnt = 0;
         for(int i =0 ;i<Dictionary.getSize();i++) {
-            if(Dictionary.getWordList().get(i).getWordTarget().equals(wordTarget)) {
+            if(!(Dictionary.getWordList().get(i).getWordTarget().equals(wordTarget))) {
                 cnt++;
             }
         }
 
-        if(cnt != Dictionary.getSize()) {
+        if(cnt == Dictionary.getSize()) {
             System.out.println("Word not found!");
             return;
         }
@@ -99,7 +98,7 @@ public class DictionaryManagement {
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
-                System.out.println(rand.getWordTarget() + rand.getWordExplain());
+                System.out.println(rand.getWordTarget() + " " + rand.getWordExplain());
             }
         }
     }
@@ -120,17 +119,18 @@ public class DictionaryManagement {
     public static void update(String wordE,String wordM, String action) {
         int cnt = 0;
         for(int i =0 ;i<Dictionary.getSize();i++) {
-            if(Dictionary.getWordList().get(i).getWordTarget().equals(wordE)) {
+            if(!(Dictionary.getWordList().get(i).getWordTarget().equals(wordE))) {
                 cnt++;
             }
         }
 
-        if(cnt != Dictionary.getSize()) {
+        if(cnt == Dictionary.getSize()) {
             System.out.println("Word not found!");
             return;
         }
 
         for(int i =0 ;i<Dictionary.getSize();i++) {
+
             if(Dictionary.getWordList().get(i).getWordTarget().equals(wordE))
             {
                 if(action.equals("ADD")) {

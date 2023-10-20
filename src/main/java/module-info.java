@@ -9,4 +9,6 @@ module AppScreen {
 
     opens AppScreen to javafx.fxml;
     exports AppScreen;
+    exports Controller;
+    opens Controller to javafx.fxml;
 }

@@ -48,10 +48,9 @@ public class DictionaryCommandLine {
         System.out.println("Your Action: ");
 
         Scanner sc = new Scanner(System.in);
-        int noAction = Integer.parseInt(new Scanner(System.in).nextLine());
+        int noAction = Integer.parseInt(sc.nextLine());
 
-
-        System.out.println(noAction);
+//        System.out.println(noAction);
 
         if(noAction == 0) {
             return;
@@ -61,7 +60,6 @@ public class DictionaryCommandLine {
             DictionaryManagement.insertFromCommandline();
             System.out.println("Your action has been done!");
             dictionaryAdvanced();
-
         }
 
         if(noAction == 2) {
@@ -79,6 +77,7 @@ public class DictionaryCommandLine {
             String inputAct = sc.nextLine();
             System.out.println("Choose the word you want to update:");
             String engWord = sc.nextLine();
+            System.out.println("Put in the meaning you want to update:");
             String vietMeaning = sc.nextLine();
             DictionaryManagement.update(engWord, vietMeaning, inputAct);
             System.out.println("Your action has been done!");

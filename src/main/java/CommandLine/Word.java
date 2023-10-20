@@ -6,7 +6,8 @@ public class Word {
     private String wordTarget;
     private String wordExplain;
 
-    public Word(){};
+    public Word(){}
+    
     public Word(String wordTarget, String wordExplain) {
         this.wordTarget = wordTarget;
         this.wordExplain = wordExplain;
