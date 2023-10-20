@@ -27,7 +27,7 @@ public class App extends Application {
 //
 //            Group root = new Group();
 
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 900, 600, Color.BLACK);
 
             stage.setScene(scene);
             stage.show();
