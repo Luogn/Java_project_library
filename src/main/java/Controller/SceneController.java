@@ -12,7 +12,7 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
-    public void swichToScene1(ActionEvent event) throws Exception {
+    public void switchToScene1(ActionEvent event) throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/DictionaryController.fxml"));
         Parent root = fxml.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -21,7 +21,16 @@ public class SceneController {
         stage.show();
     }
 
-    public void swichToScene3(ActionEvent event) throws Exception {
+    public void switchToScene2(ActionEvent event) throws Exception {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/WordMarkController.fxml"));
+        Parent root = fxml.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToScene3(ActionEvent event) throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/GameController.fxml"));
         Parent root = fxml.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -30,7 +39,7 @@ public class SceneController {
         stage.show();
     }
 
-    public void swichToScene4(ActionEvent event) throws Exception {
+    public void switchToScene4(ActionEvent event) throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/TranslationController.fxml"));
         Parent root = fxml.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

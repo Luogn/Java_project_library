@@ -49,8 +49,6 @@ public class DictionaryCommandLine {
 
         Scanner sc = new Scanner(System.in);
         int noAction = Integer.parseInt(new Scanner(System.in).nextLine());
-        sc.close();
-//        System.out.println(noAction);
 
         if(noAction == 0) {
             return;
@@ -116,5 +114,6 @@ public class DictionaryCommandLine {
 
         }
 
+        sc.close();
     }
 };

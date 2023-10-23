@@ -9,10 +9,14 @@ import javafx.stage.Stage;
 
 public class TranslationController extends SceneController {
     public void gotoDictionary(ActionEvent event) throws Exception {
-        super.swichToScene1(event);
+        super.switchToScene1(event);
+    }
+
+    public void gotoMark(ActionEvent event) throws Exception {
+        super.switchToScene2(event);
     }
 
     public void gotoGame(ActionEvent event) throws Exception {
-        super.swichToScene3(event);
+        super.switchToScene3(event);
     }
 }

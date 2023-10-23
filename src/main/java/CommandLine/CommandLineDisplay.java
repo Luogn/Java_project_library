@@ -1,7 +1,7 @@
 package CommandLine;
 
 public class CommandLineDisplay {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Welcome to My Application!");
         try {
             DictionaryCommandLine.dictionaryAdvanced();

@@ -15,12 +15,16 @@ public class DictionaryController extends SceneController {
     @FXML
     Pane my_pane;
 
-    public void gotoTranslation(ActionEvent event) throws Exception {
-        super.swichToScene4(event);
+    public void gotoMark(ActionEvent event) throws Exception {
+        super.switchToScene2(event);
     }
 
     public void gotoGame(ActionEvent event) throws Exception {
-        super.swichToScene3(event);
+        super.switchToScene3(event);
+    }
+
+    public void gotoTranslation(ActionEvent event) throws Exception {
+        super.switchToScene4(event);
     }
 
     public void getText() {
