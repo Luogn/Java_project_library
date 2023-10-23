@@ -11,4 +11,8 @@ public class TranslationController extends SceneController {
     public void gotoDictionary(ActionEvent event) throws Exception {
         super.swichToScene1(event);
     }
+
+    public void gotoGame(ActionEvent event) throws Exception {
+        super.swichToScene3(event);
+    }
 }

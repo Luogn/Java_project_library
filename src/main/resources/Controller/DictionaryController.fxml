@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictionaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #97FFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictionaryController">
    <children>
-      <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Dictionary" />
-      <Button layoutY="104.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Button" />
-      <Button layoutY="210.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Button" />
+      <Button layoutY="84.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Dictionary" />
+      <Button layoutY="166.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Button" />
+      <Button layoutY="239.0" mnemonicParsing="false" onAction="#gotoGame" prefHeight="84.0" prefWidth="90.0" text="Game" />
       <Button layoutY="316.0" mnemonicParsing="false" onAction="#gotoTranslation" prefHeight="84.0" prefWidth="90.0" text="Translation" />
+      <TextField fx:id="my_textfield" layoutX="171.0" layoutY="71.0" />
+      <Button layoutX="337.0" layoutY="71.0" mnemonicParsing="false" onAction="#getText" text="Search" />
+      <Pane fx:id="my_pane" layoutX="137.0" layoutY="139.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>
