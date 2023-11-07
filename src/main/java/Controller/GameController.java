@@ -2,16 +2,6 @@ package Controller;
 
 import javafx.event.ActionEvent;
 
-public class GameController extends SceneController {
-    public void gotoDictionary(ActionEvent event) throws Exception {
-        super.switchToScene1(event);
-    }
+public class GameController {
 
-    public void gotoMark(ActionEvent event) throws Exception {
-        super.switchToScene2(event);
-    }
-
-    public void gotoTranslation(ActionEvent event) throws Exception {
-        super.switchToScene4(event);
-    }
 }

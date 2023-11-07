@@ -4,6 +4,9 @@ import java.util.Objects;
 
 public class Word {
     private String wordTarget;
+
+    private String wordType;
+
     private String wordExplain;
 
     public Word(){}
@@ -12,6 +15,12 @@ public class Word {
         this.wordTarget = wordTarget;
         this.wordExplain = wordExplain;
     }
+
+    public Word(String wordTarget, String wordType, String wordExplain) {
+        this(wordTarget, wordExplain);
+        this.wordType = wordType;
+    }
+
     public String getWordTarget() {
         return wordTarget;
     }
@@ -30,15 +39,14 @@ public class Word {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this.hashCode() == o.hashCode()) return true;
         if (!(o instanceof Word word)) return false;
-        // if (this.hashCode() == o.hashCode()) return true;
         return Objects.equals(wordTarget, word.getWordTarget());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(wordTarget, wordExplain);
+        return Objects.hash(wordTarget + wordType + wordExplain);
     }
 
     @Override

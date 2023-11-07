@@ -14,19 +14,19 @@ public class DictionaryManagement {
     static final String filepath_write = "D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\words_alpha.txt";
 
     public static void insertFromCommandline() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("please enter the number of words you want to add:");
-        int numOfWords = Integer.parseInt(sc.nextLine());
 
+        System.out.println("please enter the number of words you want to add:");
+        int numOfWords = Integer.parseInt(new Scanner(System.in).nextLine());
+        Scanner sd = new Scanner(System.in);
         for(int i=0;i<numOfWords;i++) {
             System.out.println("the word you want to add");
-            String engWords = sc.nextLine();
+            String engWords = sd.nextLine();
             System.out.println("its meaning:");
-            String meaning = sc.nextLine();
+            String meaning = sd.nextLine();
             Word rand = new Word(engWords, meaning);
             addWord(rand);
         }
-        sc.close();
+        sd.close();
     }
 
     public static void insertFromFile() throws Exception{

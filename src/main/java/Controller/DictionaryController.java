@@ -8,24 +8,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
-public class DictionaryController extends SceneController {
+public class DictionaryController {
     @FXML
     TextField my_textfield;
-
-    @FXML
-    Pane my_pane;
-
-    public void gotoMark(ActionEvent event) throws Exception {
-        super.switchToScene2(event);
-    }
-
-    public void gotoGame(ActionEvent event) throws Exception {
-        super.switchToScene3(event);
-    }
-
-    public void gotoTranslation(ActionEvent event) throws Exception {
-        super.switchToScene4(event);
-    }
 
     public void getText() {
         System.out.print(my_textfield.getText());

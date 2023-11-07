@@ -18,7 +18,7 @@ public class App extends Application {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
-                    ("/Controller/TranslationController.fxml"));
+                    ("/Controller/EntranceController.fxml"));
             Image icon = new Image("D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\snow_icon.png");
             stage.getIcons().add(icon);
             stage.setTitle("Demo Window");
