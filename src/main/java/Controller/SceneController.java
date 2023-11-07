@@ -31,11 +31,7 @@ public class SceneController {
 
         AnchorPane childPane = fxml.load();
         parentPane.getChildren().setAll(childPane);
-//        root = fxml.load();
-//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
+
     }
 
     public void switchToScene2(ActionEvent event) throws Exception {

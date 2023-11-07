@@ -1,5 +1,6 @@
 package Controller;
 
+import CommandLine.DictionaryManagement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,12 @@ public class EntranceController {
     private Parent root;
 
     public void login(ActionEvent event) throws Exception {
+        try {
+            DictionaryManagement.insertFromFile();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         String username = nameTextField.getText();
 
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/SceneController.fxml"));
