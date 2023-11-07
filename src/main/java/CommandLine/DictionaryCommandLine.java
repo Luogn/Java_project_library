@@ -19,7 +19,7 @@ public class DictionaryCommandLine {
         showAllWord();
     }
 
-    public static void dictionarySearcher(String target) {
+    public static List<String> dictionarySearcher(String target) {
         List<String> searchList = new ArrayList<>();
 
         for(int i=0;i<Dictionary.getSize();i++) {
@@ -29,9 +29,7 @@ public class DictionaryCommandLine {
             }
         }
 
-        for (String s : searchList) {
-            System.out.println(s);
-        }
+       return searchList;
     }
 
     public static void dictionaryAdvanced() throws Exception {
@@ -94,9 +92,14 @@ public class DictionaryCommandLine {
             System.out.println("Your action has been done!");
             dictionaryAdvanced();
         }
+
         if(noAction == 6) {
+            System.out.println("Word you want to search is:");
             String word = sc.nextLine();
-            dictionarySearcher(word);
+            List<String> searchList = dictionarySearcher(word);
+            for (String s : searchList) {
+                System.out.println(s);
+            }
             System.out.println("Your action has been done!");
             dictionaryAdvanced();
         }
