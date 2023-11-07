@@ -26,7 +26,6 @@ public class DictionaryManagement {
             Word rand = new Word(engWords, meaning);
             addWord(rand);
         }
-        sd.close();
     }
 
     public static void insertFromFile() throws Exception{
