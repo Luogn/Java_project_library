@@ -17,7 +17,6 @@ public class DictionaryController implements Initializable {
     @FXML
     private TextField my_textfield;
 
-
     @FXML
     private ListView<String> my_listView;
 
