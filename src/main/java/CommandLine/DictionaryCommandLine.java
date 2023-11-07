@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandLine {
+    public static Scanner sc = new Scanner(System.in);
     public static void showAllWord() {
          String no = "No", eng = "English", viet = "Vietnamese";
          System.out.printf("%-4s | %-15s | %-15s\n", no , eng , viet);
@@ -47,8 +48,8 @@ public class DictionaryCommandLine {
         System.out.println("[9] Export to file");
         System.out.println("Your Action: ");
 
-        Scanner sc = new Scanner(System.in);
-        int noAction = Integer.parseInt(new Scanner(System.in).nextLine());
+
+        int noAction = Integer.parseInt(sc.nextLine());
 
         if(noAction == 0) {
             return;

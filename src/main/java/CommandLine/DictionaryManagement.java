@@ -16,7 +16,7 @@ public class DictionaryManagement {
     public static void insertFromCommandline() {
 
         System.out.println("please enter the number of words you want to add:");
-        int numOfWords = Integer.parseInt(new Scanner(System.in).nextLine());
+        int numOfWords = Integer.parseInt(DictionaryCommandLine.sc.nextLine());
         Scanner sd = new Scanner(System.in);
         for(int i=0;i<numOfWords;i++) {
             System.out.println("the word you want to add");
@@ -26,7 +26,6 @@ public class DictionaryManagement {
             Word rand = new Word(engWords, meaning);
             addWord(rand);
         }
-        sd.close();
     }
 
     public static void insertFromFile() throws Exception{
