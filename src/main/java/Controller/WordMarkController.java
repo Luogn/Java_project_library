@@ -2,6 +2,9 @@ package Controller;
 
 import javafx.event.ActionEvent;
 
-public class WordMarkController {
+import java.util.ArrayList;
 
+public class WordMarkController {
+    public static ArrayList<String> searchHistory = new ArrayList<>();
+    public static ArrayList<String> bookMark = new ArrayList<>();
 }
