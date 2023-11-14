@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class DictionaryManagement {
-    static final String filepath_read = "D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\dictionary.txt";
-    static final String filepath_write = "D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\words_alpha.txt";
+    static final String filepath_read = "file:/dictionary.txt";
+    static final String filepath_write = "file:/words_alpha.txt";
 
     public static void insertFromCommandline() {
 

@@ -19,8 +19,8 @@ public class App extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                     ("/Controller/EntranceController.fxml"));
-//            Image icon = new Image("D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\snow_icon.png");
-//            stage.getIcons().add(icon);
+            Image icon = new Image("file:/snow_icon.png");
+            stage.getIcons().add(icon);
             stage.setTitle("Demo Window");
             Scene scene = new Scene(fxmlLoader.load(), Color.BLACK);
             stage.setScene(scene);
