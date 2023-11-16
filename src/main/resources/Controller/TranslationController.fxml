@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TranslationController">
    <children>
@@ -9,5 +11,13 @@
       <Button layoutY="316.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Translation" />
       <Button layoutY="232.0" mnemonicParsing="false" onAction="#gotoGame" prefHeight="84.0" prefWidth="90.0" text="Game" />
       <Button layoutY="148.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="90.0" text="Button" />
+      <TextArea fx:id="sourceLangField" layoutX="99.0" layoutY="64.0" prefHeight="257.0" prefWidth="239.0" promptText="Nhập từ muốn dịch">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="toLangField" layoutX="346.0" layoutY="64.0" prefHeight="257.0" prefWidth="239.0" />
+      <Button layoutX="241.0" layoutY="345.0" mnemonicParsing="false" onAction="#translateEnToVi" text="ENtoVI" />
+      <Button layoutX="371.0" layoutY="345.0" mnemonicParsing="false" onAction="#translateViToEn" text="VItoEN" />
    </children>
 </AnchorPane>
