@@ -2,3 +2,18 @@
 
 #titlelable {
 }
+
+.button {
+    -fx-background-color: #4CAF50; /* Màu nền */
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Màu nền khi di chuột vào */
+}
+
+.button:pressed {
+    -fx-background-color: #3e8e41; /* Màu nền khi button được nhấn */
+}
