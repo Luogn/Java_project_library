@@ -36,7 +36,7 @@ public class EntranceController {
         scene = new Scene(root);
         stage.setScene(scene);
         scene_.displayButton();
-
+//        scene_.zoomWhenPress();
         stage.show();
     }
 }

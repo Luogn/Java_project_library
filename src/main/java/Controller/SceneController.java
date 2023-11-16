@@ -79,6 +79,7 @@ public class SceneController {
         button1.setGraphic(imgView1);
         button4.setGraphic(imgView4);
     }
+
     private void fadeInTransition(AnchorPane node) {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
         fadeTransition.setFromValue(0.0);
@@ -95,39 +96,80 @@ public class SceneController {
         translateTransition.play();
     }
 
-    public void switchToScene1(ActionEvent event) throws Exception {
+    public void switchToScene1() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/DictionaryController.fxml"));
         DictionaryController paneDict = fxml.getController();
+        button1.setScaleX(1.5);
+        button1.setScaleY(1.5);
 
+        // Phóng to button khác về kích thước ban đầu
+        button2.setScaleX(1.0);
+        button2.setScaleY(1.0);
+        button3.setScaleX(1.0);
+        button3.setScaleY(1.0);
+        button4.setScaleX(1.0);
+        button4.setScaleY(1.0);
         AnchorPane childPane = fxml.load();
         fadeInTransition(childPane);
+
         parentPane.getChildren().setAll(childPane);
 
     }
 
-    public void switchToScene2(ActionEvent event) throws Exception {
+    public void switchToScene2() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/WordMarkController.fxml"));
         DictionaryController paneDict = fxml.getController();
+        // Phóng to button hiện tại
+        button2.setScaleX(1.5);
+        button2.setScaleY(1.5);
 
+        // Phóng to button khác  về kích thước ban đầu
+        button1.setScaleX(1.0);
+        button1.setScaleY(1.0);
+        button3.setScaleX(1.0);
+        button3.setScaleY(1.0);
+        button4.setScaleX(1.0);
+        button4.setScaleY(1.0);
 
         AnchorPane childPane = fxml.load();
         translateTransition(childPane, -300, 0, 0, 0);
         parentPane.getChildren().setAll(childPane);
     }
 
-    public void switchToScene3(ActionEvent event) throws Exception {
+    public void switchToScene3() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/GameController.fxml"));
         DictionaryController paneDict = fxml.getController();
 
+        // Phóng to button hiện tại
+        button3.setScaleX(1.5);
+        button3.setScaleY(1.5);
+
+        // Phóng to button khác về kích thước ban đầu
+        button1.setScaleX(1.0);
+        button1.setScaleY(1.0);
+        button2.setScaleX(1.0);
+        button2.setScaleY(1.0);
+        button4.setScaleX(1.0);
+        button4.setScaleY(1.0);
         AnchorPane childPane = fxml.load();
         translateTransition(childPane, 900, 0, 0, 0);
         parentPane.getChildren().setAll(childPane);
     }
 
-    public void switchToScene4(ActionEvent event) throws Exception {
+    public void switchToScene4() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/TranslationController.fxml"));
         DictionaryController paneDict = fxml.getController();
 
+        button4.setScaleX(1.5);
+        button4.setScaleY(1.5);
+
+        // Phóng to button khác về kích thước ban đầu
+        button1.setScaleX(1.0);
+        button1.setScaleY(1.0);
+        button2.setScaleX(1.0);
+        button2.setScaleY(1.0);
+        button3.setScaleX(1.0);
+        button3.setScaleY(1.0);
         AnchorPane childPane = fxml.load();
         translateTransition(childPane, 0, 0, -200, 0);
         parentPane.getChildren().setAll(childPane);
