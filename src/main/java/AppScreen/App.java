@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class App extends Application {
@@ -19,8 +20,9 @@ public class App extends Application {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                     ("/Controller/EntranceController.fxml"));
-//            Image icon = new Image("D:\\file_lap_trinh\\Java\\Java_project_library\\src\\main\\resources\\Neccessary\\snow_icon.png");
-//            stage.getIcons().add(icon);
+            Image icon = new Image(Objects.requireNonNull
+                    (getClass().getResourceAsStream("/Neccessary/snow_icon.png")));
+            stage.getIcons().add(icon);
             stage.setTitle("Demo Window");
             Scene scene = new Scene(fxmlLoader.load(), Color.BLACK);
             stage.setScene(scene);
