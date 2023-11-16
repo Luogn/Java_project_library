@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,9 +17,10 @@ import java.util.List;
 public class DictionaryController implements Initializable {
     @FXML
     private TextField my_textfield;
-
     @FXML
     private ListView<String> my_listView;
+    @FXML
+    private TextArea my_textarea;
 
     public void search() {
         // Chỉ hiển thị listView khi bắt đầu search
@@ -39,6 +41,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 my_listView.setVisible(false);
+                my_textarea.setText(str);
             }
         });
     }
