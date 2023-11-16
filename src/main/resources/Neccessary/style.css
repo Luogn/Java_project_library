@@ -1,10 +1,37 @@
-.label
 
 #titlelable {
 }
 
+.anchor-pane {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 700px;
+    -fx-max-width: 800;
+    -fx-background-color: #F5F5DC;
+}
+
 .button {
-    -fx-background-color: #4CAF50; /* Màu nền */
+    -fx-background-radius: 50%;
+    -fx-background-color: #CD853F; /* Màu nền */
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
+    -fx-max-width: 30px; /* Đặt chiều rộng tối đa */
+    -fx-max-height: 30px; /* Đặt chiều cao tối đa */
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+}
+
+.button:hover {
+    -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
+}
+
+.button:pressed {
+    -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
+}
+
+.button2 {
+    -fx-background-color: #CD853F; /* Màu nền */
     -fx-text-fill: white; /* Màu chữ */
     -fx-font-size: 14px; /* Kích thước chữ */
     -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
@@ -12,13 +39,7 @@
     -fx-min-height: 40px; /* Đặt chiều cao tối thiểu */
     -fx-max-width: 60px; /* Đặt chiều rộng tối đa */
     -fx-max-height: 60px; /* Đặt chiều cao tối đa */
-    }
+    -fx-pref-width: 50px;
+    -fx-pref-height: 30px;
 }
 
-.button:hover {
-    -fx-background-color: #45a049; /* Màu nền khi di chuột vào */
-}
-
-.button:pressed {
-    -fx-background-color: #3e8e41; /* Màu nền khi button được nhấn */
-}

@@ -31,11 +31,12 @@ public class EntranceController {
 
         SceneController scene_ = fxml.getController();
         scene_.displayName(username);
-        scene_.displayButton();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene_.displayButton();
+
         stage.show();
     }
 }

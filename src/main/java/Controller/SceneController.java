@@ -27,22 +27,24 @@ public class SceneController {
     @FXML
     AnchorPane parentPane;
 
-//    @FXML
-//    ImageView imgView1 = new ImageView();
-//    ImageView imgView2 = new ImageView();
-//    @FXML
-//    ImageView imgView3 = new ImageView();
+
+    ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Neccessary/search_symbol.png"))));
+    ImageView imgView2 = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Neccessary/bookmark.png"))));
+    ImageView imgView3 = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Neccessary/games.png"))));
     final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
         (getClass().getResourceAsStream("/Neccessary/google_translate.png"))));
 
-//    @FXML
-//    Button button1;
-//    @FXML
-//    Button button2;
-//    @FXML
-//    Button button3 = new Button();
     @FXML
-    Button button4 = new Button();
+    Button button1;
+    @FXML
+    Button button2;
+    @FXML
+    Button button3 = new Button();
+    @FXML
+    Button button4;
 
 
     private Stage stage;
@@ -55,12 +57,26 @@ public class SceneController {
     }
 
     public void displayButton() {
-//        button1.setGraphic(imgView1);
-//        button2.setGraphic(imgView2);
-//        button3.setGraphic(imgView3);
+        imgView1.setFitHeight(button4.getHeight());
+        imgView1.setFitWidth(button4.getWidth());
+
+        imgView2.setFitHeight(button4.getHeight());
+        imgView2.setFitWidth(button4.getWidth());
+
+        imgView3.setFitHeight(button4.getHeight());
+        imgView3.setFitWidth(button4.getWidth());
+
         imgView4.setFitHeight(button4.getHeight());
         imgView4.setFitWidth(button4.getWidth());
 
+        System.out.println(button1.getHeight());
+        System.out.println(button1.getWidth());
+        System.out.println(button2.getHeight());
+        System.out.println(button2.getWidth());
+
+        button2.setGraphic(imgView2);
+        button3.setGraphic(imgView3);
+        button1.setGraphic(imgView1);
         button4.setGraphic(imgView4);
     }
     private void fadeInTransition(AnchorPane node) {
