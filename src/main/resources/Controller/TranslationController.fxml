@@ -20,7 +20,7 @@
             <Font size="24.0" />
          </font>
       </TextArea>
-      <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="402.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="384.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Neccessary/vietnam.png" />
          </image>
@@ -35,12 +35,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="468.0" layoutY="277.0" prefHeight="34.0" prefWidth="115.0" text="Vietnamese">
+      <Label layoutX="453.0" layoutY="275.0" prefHeight="34.0" prefWidth="115.0" text="Vietnamese">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="116.0" layoutY="332.0" mnemonicParsing="false" onAction="#translateEnToVi" text="ENtoVN" />
-      <Button layoutX="447.0" layoutY="332.0" mnemonicParsing="false" onAction="#translateViToEn" text="VNtoEN" />
+      <Button layoutX="253.0" layoutY="274.0" mnemonicParsing="false" onAction="#translateEnToVi" text="ENtoVN" />
+      <Button layoutX="594.0" layoutY="276.0" mnemonicParsing="false" onAction="#translateViToEn" text="VNtoEN" />
    </children>
 </AnchorPane>
