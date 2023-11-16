@@ -30,7 +30,7 @@ public class DictionaryCommandLine {
             }
         }
 
-       return searchList;
+        return searchList;
     }
 
     public static void dictionaryAdvanced() throws Exception {
