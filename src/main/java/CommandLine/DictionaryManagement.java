@@ -1,16 +1,12 @@
 package CommandLine;
 
+import java.io.*;
 import java.util.Scanner;
-import java.io.BufferedReader;
 //import java.io.FileReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 
 public class DictionaryManagement {
-    static final String filepath_read = "src\\main\\resources\\Neccessary\\dictionary.txt";
+    static final String filepath_read = "src\\main\\resources\\Neccessary\\dictionaries.txt";
     static final String filepath_write = "src\\main\\resources\\Neccessary\\words_alpha.txt";
 
     public static void insertFromCommandline() {
@@ -28,36 +24,31 @@ public class DictionaryManagement {
         }
     }
 
-    public static void insertFromFile() throws Exception{
-        // Read data from text file
-        InputStreamReader read = new InputStreamReader(new FileInputStream(filepath_read), "UTF-8");
-        BufferedReader bufferedReader = null;
-
+    public static void insertFromFile() {
         try {
-            bufferedReader = new BufferedReader(read);
-
-            while (true) {
-                String inputLine = bufferedReader.readLine();
-                // System.out.println(inputLine);
-                if(inputLine == null) break;
-                // Tách các từ từ dòng đọc được
-                String[] words = inputLine.split("[|]");
-
-                Word rand = new Word(words[0].trim(), words[1].trim());
-
-                addWord(rand);
+            FileReader fileReader = new FileReader(filepath_read);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String englishWord = bufferedReader.readLine();
+            englishWord = englishWord.replace("|", "");
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                Word word = new Word();
+                word.setWordTarget(englishWord.trim());
+                String meaning = line + "\n";
+                while ((line = bufferedReader.readLine()) != null)
+                    if (!line.startsWith("|")) meaning += line + "\n";
+                    else {
+                        englishWord = line.replace("|", "");
+                        break;
+                    }
+                word.setWordExplain(meaning.trim());
+                addWord(word);
             }
-            
+            bufferedReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            System.out.println("An error occur with file: " + e);
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
         }
     }
 
