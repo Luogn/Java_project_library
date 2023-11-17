@@ -22,12 +22,12 @@
       </TextArea>
       <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="384.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Neccessary/vietnam.png" />
+            <Image url="@../Icon/vietnam.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="103.0" layoutX="55.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Neccessary/united-kingdom.png" />
+            <Image url="@../Icon/united-kingdom.png" />
          </image>
       </ImageView>
       <Label layoutX="116.0" layoutY="275.0" prefHeight="34.0" prefWidth="115.0" text="English">

@@ -29,13 +29,13 @@ public class SceneController {
 
 
     ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
-            (getClass().getResourceAsStream("/Neccessary/search_symbol.png"))));
+            (getClass().getResourceAsStream("/Icon/search_symbol.png"))));
     ImageView imgView2 = new ImageView(new Image(Objects.requireNonNull
-            (getClass().getResourceAsStream("/Neccessary/bookmark.png"))));
+            (getClass().getResourceAsStream("/Icon/bookmark.png"))));
     ImageView imgView3 = new ImageView(new Image(Objects.requireNonNull
-            (getClass().getResourceAsStream("/Neccessary/games.png"))));
+            (getClass().getResourceAsStream("/Icon/games.png"))));
     final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
-        (getClass().getResourceAsStream("/Neccessary/google_translate.png"))));
+        (getClass().getResourceAsStream("/Icon/google_translate.png"))));
 
     @FXML
     Button button1;
