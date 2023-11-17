@@ -36,8 +36,9 @@ public class DictionaryManagement {
                 word.setWordTarget(englishWord.trim());
                 String meaning = line + "\n";
                 while ((line = bufferedReader.readLine()) != null)
-                    if (!line.startsWith("|")) meaning += line + "\n";
-                    else {
+                    if (!(line.startsWith("|"))) {
+                        meaning += line + "\n";
+                    } else {
                         englishWord = line.replace("|", "");
                         break;
                     }
@@ -64,15 +65,14 @@ public class DictionaryManagement {
             }
 
             bufferedWriter.close();
-
             // System.out.println("success");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public static void dictionaryLookup(String wordTarget) {
+    public static String dictionaryLookup(String wordTarget) {
+        StringBuilder res = new StringBuilder();
         int cnt = 0;
         for(int i =0 ;i<Dictionary.getSize();i++) {
             if(!(Dictionary.getWordList().get(i).getWordTarget().equals(wordTarget))) {
@@ -81,16 +81,17 @@ public class DictionaryManagement {
         }
 
         if(cnt == Dictionary.getSize()) {
-            System.out.println("Word not found!");
-            return;
+            res.append("Word not found!");
+            return res.toString();
         }
 
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
-                System.out.println(rand.getWordTarget() + " " + rand.getWordExplain());
+                res.append(rand.getWordTarget()).append(" ").append(rand.getWordExplain());
             }
         }
+        return res.toString();
     }
 
     public static void addWord(Word word) {

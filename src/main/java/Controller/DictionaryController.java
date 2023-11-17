@@ -1,6 +1,9 @@
 package Controller;
 
 
+import CommandLine.Dictionary;
+import CommandLine.DictionaryManagement;
+import CommandLine.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,14 +37,16 @@ public class DictionaryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String str = my_textfield.getText();
         my_listView.getItems().clear(); //Xóa list view để khi tra lại không hiển thị lại các từ đã tra.
-        List<String> list = DictionaryCommandLine.dictionarySearcher(str);
-        my_listView.getItems().addAll(list);
+        List<Word> list = DictionaryCommandLine.dictionarySearcher(str);
+        List<String> arr = Dictionary.getTargetList(list);
+        my_listView.getItems().addAll(arr);
 
         my_listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 my_listView.setVisible(false);
-                my_textarea.setText(str);
+                String newStr = DictionaryManagement.dictionaryLookup(my_listView.getSelectionModel().getSelectedItem());
+                my_textarea.setText(newStr);
             }
         });
     }

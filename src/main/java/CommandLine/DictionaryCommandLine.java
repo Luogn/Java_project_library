@@ -15,17 +15,12 @@ public class DictionaryCommandLine {
         }
     }
 
-    public static void dictionaryBasic(){
-        DictionaryManagement.insertFromCommandline();
-        showAllWord();
-    }
-
-    public static List<String> dictionarySearcher(String target) {
-        List<String> searchList = new ArrayList<>();
+    public static List<Word> dictionarySearcher(String target) {
+        List<Word> searchList = new ArrayList<>();
 
         for(int i=0;i<Dictionary.getSize();i++) {
-            if(target.equals(Dictionary.getWordList().get(i).getWordTarget().substring(0, target.length()))) {
-                String rand = Dictionary.getWordList().get(i).getWordTarget();
+            if(target.equals(Dictionary.getWordList().get(i).getWordTarget())) {
+                Word rand = Dictionary.getWordList().get(i);
                 searchList.add(rand);
             }
         }
@@ -88,8 +83,10 @@ public class DictionaryCommandLine {
         }
 
         if(noAction == 5) {
+            System.out.println("Type in the word you want to look up:");
             String word = sc.nextLine();
-            DictionaryManagement.dictionaryLookup(word);
+            String res = DictionaryManagement.dictionaryLookup(word);
+            System.out.println(res + "\n");
             System.out.println("Your action has been done!");
             dictionaryAdvanced();
         }
@@ -97,9 +94,9 @@ public class DictionaryCommandLine {
         if(noAction == 6) {
             System.out.println("Word you want to search is:");
             String word = sc.nextLine();
-            List<String> searchList = dictionarySearcher(word);
-            for (String s : searchList) {
-                System.out.println(s);
+            List<Word> searchList = dictionarySearcher(word);
+            for (Word w : searchList) {
+                System.out.println(w.getWordTarget());
             }
             System.out.println("Your action has been done!");
             dictionaryAdvanced();

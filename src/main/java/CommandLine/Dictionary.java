@@ -13,4 +13,12 @@ public abstract class Dictionary {
     public static int getSize() {
         return wordList.size();
     }
+
+    public static List<String> getTargetList(List<Word> list) {
+        List<String> newList = new ArrayList<>();
+        for(Word s : list) {
+            newList.add(s.getWordTarget());
+        }
+        return newList;
+    }
 }
