@@ -6,6 +6,9 @@ module AppScreen {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.logging;
+    requires org.apache.httpcomponents.httpcore;
+    requires org.apache.httpcomponents.httpclient;
+    requires com.google.gson;
 
     opens AppScreen to javafx.fxml;
     exports AppScreen;

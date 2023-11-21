@@ -40,7 +40,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="253.0" layoutY="274.0" mnemonicParsing="false" onAction="#translateEnToVi" text="ENtoVN" />
-      <Button layoutX="594.0" layoutY="276.0" mnemonicParsing="false" onAction="#translateViToEn" text="VNtoEN" />
+      <Button layoutX="253.0" layoutY="274.0" mnemonicParsing="false" onAction="#English_transto_VietNam" text="ENtoVN" />
+      <Button layoutX="594.0" layoutY="276.0" mnemonicParsing="false" onAction="#VietName_transto_English" text="VNtoEN" />
    </children>
 </AnchorPane>

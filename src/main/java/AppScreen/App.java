@@ -23,7 +23,7 @@ public class App extends Application {
             Image icon = new Image(Objects.requireNonNull
                     (getClass().getResourceAsStream("/Icon/snow_icon.png")));
             stage.getIcons().add(icon);
-            stage.setTitle("Demo Window");
+            stage.setTitle("Snow Flake");
             Scene scene = new Scene(fxmlLoader.load(), Color.BLACK);
             stage.setScene(scene);
             stage.show();
