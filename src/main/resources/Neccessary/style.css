@@ -27,7 +27,7 @@
     -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
     -fx-pref-width: 30px;
     -fx-pref-height: 30px;
-}
+}//
 
 .button:hover {
     -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
