@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFCC99;" styleClass="anchor-pane" stylesheets="@../Neccessary/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictionaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFCC99;" styleClass="anchor-pane-2" stylesheets="@../Neccessary/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictionaryController">
    <children>
-      <TextField fx:id="my_textfield" layoutX="23.0" layoutY="45.0" />
-      <Button contentDisplay="BOTTOM" layoutX="173.0" layoutY="39.0" maxWidth="152.0" minHeight="37.0" mnemonicParsing="false" onAction="#search" prefHeight="37.0" prefWidth="152.0" styleClass="button2" stylesheets="@../Neccessary/style.css" text="Search" AnchorPane.bottomAnchor="324.2" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="374.99999999999994" AnchorPane.topAnchor="39.0" />
-      <ListView fx:id="my_listView" editable="true" focusTraversable="false" layoutX="26.0" layoutY="71.0" prefHeight="200.0" prefWidth="142.0" />
-      <TextArea fx:id="my_textarea" editable="false" layoutX="291.0" layoutY="88.0" prefHeight="250.0" prefWidth="370.0">
+      <TextField fx:id="my_textfield" layoutX="29.0" layoutY="62.0" prefHeight="30.0" prefWidth="148.0" />
+      <Button contentDisplay="BOTTOM" layoutX="180.0" layoutY="52.0" maxWidth="252.0" minHeight="37.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="122.0" stylesheets="@../Neccessary/style.css" text="Search" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="498.0" AnchorPane.topAnchor="52.0" />
+      <ListView fx:id="my_listView" editable="true" focusTraversable="false" layoutX="29.0" layoutY="90.0" prefHeight="200.0" prefWidth="142.0" />
+      <TextArea fx:id="my_textarea" editable="false" layoutX="302.0" layoutY="128.0" prefHeight="288.0" prefWidth="438.0">
          <font>
             <Font size="14.0" />
          </font></TextArea>

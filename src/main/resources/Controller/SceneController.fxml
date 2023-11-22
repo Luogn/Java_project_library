@@ -2,29 +2,17 @@
 
 <!--<?import com.gluonhq.charm.glisten.control.ExpansionPanel.CollapsedPanel?>-->
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="anchor-pane" stylesheets="@../Neccessary/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SceneController">
+<AnchorPane styleClass="anchor-pane-1" stylesheets="@../Neccessary/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SceneController">
    <children>
-      <AnchorPane fx:id="parentPane" layoutY="34.0" prefHeight="342.0" prefWidth="700.0" styleClass="anchor-pane" stylesheets="@../Neccessary/style.css">
+      <AnchorPane fx:id="parentPane" layoutY="100.0" prefHeight="400.0" styleClass="anchor-pane-2" stylesheets="@../Neccessary/style.css">
 
       </AnchorPane>
-      <Label fx:id="nameLabel" layoutY="-5.0" prefHeight="50.0" prefWidth="398.0" text="Label">
-         <font>
-            <Font name="Copperplate Gothic Light" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="button1" contentDisplay="GRAPHIC_ONLY" layoutX="209.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css">
-         <styleClass>
-            <String fx:value="button" />
-            <String fx:value="button:hover" />
-         </styleClass></Button>
-      <Button fx:id="button2" layoutX="291.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
-      <Button fx:id="button3" layoutX="366.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
-      <Button fx:id="button4" layoutX="445.0" layoutY="435.0" mnemonicParsing="false" onAction="#switchToScene4" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
+      <Button fx:id="button2" layoutX="139.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
+      <Button fx:id="button3" layoutX="243.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
+      <Button fx:id="button4" layoutX="350.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToScene4" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
+      <Button fx:id="button1" layoutX="34.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="50.0" prefWidth="52.0" stylesheets="@../Neccessary/style.css" />
    </children>
 </AnchorPane>

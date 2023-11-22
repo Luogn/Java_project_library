@@ -2,11 +2,8 @@ package Controller;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,9 +18,6 @@ import javafx.util.Duration;
 import java.util.Objects;
 
 public class SceneController {
-    @FXML
-    Label nameLabel;
-
     @FXML
     AnchorPane parentPane;
 
@@ -42,7 +36,7 @@ public class SceneController {
     @FXML
     Button button2;
     @FXML
-    Button button3 = new Button();
+    Button button3;
     @FXML
     Button button4;
 
@@ -50,11 +44,6 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-
-    public void displayName(String username) {
-        nameLabel.setText("Welcom to SnowFlake " + username);
-    }
 
     public void displayButton() {
         imgView1.setFitHeight(button4.getHeight());

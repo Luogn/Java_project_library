@@ -1,24 +1,30 @@
-
-#titlelable {
+@font-face {
+    src: url("Font/Leyton.ttf"),
 }
-
-.anchor-pane {
+.anchor-pane-1 {
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
-    -fx-pref-width: 700px;
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-max-width: 800;
+    -fx-background-color: #F5F5DC;
+}
+
+.anchor-pane-2 {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 800px;
+    -fx-pref-height: 500px;
     -fx-max-width: 800;
     -fx-background-color: #F5F5DC;
 }
 
 .button {
-    -fx-background-radius: 50%;
     -fx-background-color: #CD853F; /* Màu nền */
     -fx-padding: 8px 16px;
     -fx-text-fill: white; /* Màu chữ */
     -fx-font-size: 14px; /* Kích thước chữ */
     -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
-    -fx-max-width: 30px; /* Đặt chiều rộng tối đa */
-    -fx-max-height: 30px; /* Đặt chiều cao tối đa */
     -fx-pref-width: 30px;
     -fx-pref-height: 30px;
 }
@@ -32,21 +38,28 @@
 }
 
 .button2 {
-    -fx-background-color: #CD853F; /* Màu nền */
     -fx-text-fill: white; /* Màu chữ */
-    -fx-font-size: 14px; /* Kích thước chữ */
-    -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
-    -fx-min-width: 40px; /* Đặt chiều rộng tối thiểu */
-    -fx-min-height: 40px; /* Đặt chiều cao tối thiểu */
-    -fx-max-width: 60px; /* Đặt chiều rộng tối đa */
-    -fx-max-height: 60px; /* Đặt chiều cao tối đa */
-    -fx-pref-width: 50px;
-    -fx-pref-height: 30px;
+    -fx-font-size: 12px; /* Kích thước chữ */
+    -fx-pref-width: 100px;
+    -fx-pref-height: 40px;
 }
 
 .text_area {
     -fx-font-size: 14px;
-    -fx-pref-width: 270px;
-    -fx-pref-height: 170px;
+    -fx-pref-width: 320px;
+    -fx-pref-height: 200px;
 }
 
+.title-label {
+    -fx-font-family: "Leyton";
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 100px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-translate-x: 50%;
+    -fx-translate-y: 50%;
+    -fx-transform: translate(-50%, -50%);
+}
