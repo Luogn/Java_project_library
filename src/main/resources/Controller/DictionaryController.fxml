@@ -18,6 +18,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
+      <Button layoutX="640.0" layoutY="128.0" mnemonicParsing="false" onAction="#addbookmark" styleClass="button2" text="Button" />
    </children>
    <effect>
       <ColorAdjust />

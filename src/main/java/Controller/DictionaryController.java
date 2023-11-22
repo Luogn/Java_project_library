@@ -52,7 +52,8 @@ public class DictionaryController implements Initializable {
         });
     }
 
-    public void markWord() {
-
+    public void addbookmark () {
+        String word = my_textfield.getText();
+        WordMarkController.bookMark.add(word);
     }
 }
