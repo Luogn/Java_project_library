@@ -18,6 +18,7 @@ public class DictionaryCommandLine {
     public static List<Word> dictionarySearcher(String target) {
         List<Word> searchList = new ArrayList<>();
 
+
         for(int i=0;i<Dictionary.getSize();i++) {
             if(target.equals(Dictionary.getWordList().get(i).getWordTarget())) {
                 Word rand = Dictionary.getWordList().get(i);

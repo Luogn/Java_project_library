@@ -16,11 +16,6 @@ public class Word {
         this.wordExplain = wordExplain;
     }
 
-    public Word(String wordTarget, String wordType, String wordExplain) {
-        this(wordTarget, wordExplain);
-        this.wordType = wordType;
-    }
-
     public String getWordTarget() {
         return wordTarget;
     }
@@ -46,7 +41,7 @@ public class Word {
 
     @Override
     public int hashCode() {
-        return Objects.hash(wordTarget + wordType + wordExplain);
+        return Objects.hash(wordTarget + wordExplain);
     }
 
     @Override
