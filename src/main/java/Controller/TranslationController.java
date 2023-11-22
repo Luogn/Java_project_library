@@ -1,69 +1,84 @@
 package Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.List;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import com.google.gson.Gson;
 
 public class TranslationController {
     @FXML
     TextArea targetArea;
     @FXML
     TextArea meaningArea;
-    String texten;
+    String textenvi;
 
-    private static String translate(String langFrom, String langTo, String text) throws IOException {
-        String urlStr = "https://script.google.com/macros/s/AKfycbxzCfT78zpe2hPNd75uEzo7Joq2m-ach6UxoEuKpnf0JEgUcBc4C7SKL6QFeZ5ghDJM/exec"
-                +
-                "?q=" + URLEncoder.encode(text, StandardCharsets.UTF_8) +
-                "&target=" + langTo +
-                "&source=" + langFrom;
-        URL url = new URL(urlStr);
-        StringBuilder response = new StringBuilder();
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
+    public String translate(String langFirst, String langSecond, String text) throws IOException {
+        try {
+            String API = String.format("https://translate.googleapis.com/translate_a/single?client=gtx&sl=%s&tl=%s&dt=t&q=%s",
+                    langFirst, langSecond, URLEncoder.encode(text, "UTF-8"));
+
+            HttpClient httpClient = HttpClients.createDefault();
+            HttpGet request = new HttpGet(API);
+
+            HttpResponse response = httpClient.execute(request);
+            String result = EntityUtils.toString(response.getEntity());
+
+            Gson gson = new Gson();
+            List<List<List<String>>> jsonData = gson.fromJson(result, List.class);
+
+                List<List<String>> translationItems = jsonData.get(0);
+
+            StringBuilder translation = new StringBuilder();
+
+            for (List<String> item : translationItems) {
+                Iterator<String> translationLineString = item.iterator();
+                translation.append(" ").append(translationLineString.next());
+            }
+
+            if (translation.length() > 1) {
+                translation.deleteCharAt(0);
+            }
+
+            return translation.toString();
+        } catch (NullPointerException ne ) {
+            throw ne;
         }
-        in.close();
-        return response.toString();
     }
 
-    public  void  translateEnToVi() {
+    public  void  English_transto_VietNam() {
         try {
-            texten = targetArea.getText();
-            String a= translate("en", "vi", texten);
+            textenvi = targetArea.getText();
+            String a= translate("en", "vi", textenvi);
             meaningArea.setText(a);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            String exception = e.toString();
+            targetArea.setText("Lỗi đọc hiểu" + exception);
+            System.out.println(targetArea);
+        }catch (NullPointerException ne) {
+            meaningArea.setText("Vui lòng nhập từ muốn dịch!");
         }
     }
 
-    public void  translateViToEn() {
+    public void  VietName_transto_English() {
         try {
-            texten = meaningArea.getText();
-            String a= translate("vi", "en", texten);
+            textenvi = meaningArea.getText();
+            String a= translate("vi", "en", textenvi);
             targetArea.setText(a);
         } catch (IOException e) {
-            e.printStackTrace();
+            String exception = e.toString();
+            targetArea.setText("Lỗi đọc hiểu" + exception);
+            System.out.println(targetArea);
+        } catch (NullPointerException ne) {
+            targetArea.setText("Please enter the word you want to translate!");
         }
     }
 }

@@ -17,17 +17,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                     ("/Controller/EntranceController.fxml"));
             Image icon = new Image(Objects.requireNonNull
                     (getClass().getResourceAsStream("/Icon/snow_icon.png")));
             stage.getIcons().add(icon);
-            stage.setTitle("SNOW-E DICTIONARY");
-            stage.setResizable(false);
+            stage.setTitle("Demo Window");
             Scene scene = new Scene(fxmlLoader.load(), Color.BLACK);
             stage.setScene(scene);
-            stage.setHeight(600);
-            stage.setWidth(800);
             stage.show();
 
             stage.setOnCloseRequest(windowEvent -> {
