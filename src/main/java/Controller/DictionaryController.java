@@ -9,10 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import CommandLine.DictionaryCommandLine;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.util.List;
 
 public class DictionaryController implements Initializable {
@@ -24,6 +28,8 @@ public class DictionaryController implements Initializable {
     private TextArea my_textarea;
     @FXML
     private Button bookMark;
+    private final ImageView imgViewMark = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Icon/star.png"))));
 
     public void search() {
         // Chỉ hiển thị listView khi bắt đầu search
@@ -52,6 +58,11 @@ public class DictionaryController implements Initializable {
         });
     }
 
+    public void displayButton() {
+        imgViewMark.setFitWidth(bookMark.getHeight());
+        imgViewMark.setFitHeight(bookMark.getHeight());
+        bookMark.setGraphic(imgViewMark);
+    }
     public void addbookmark () {
         String word = my_textfield.getText();
         WordMarkController.bookMark.add(word);

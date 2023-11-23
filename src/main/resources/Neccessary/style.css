@@ -1,5 +1,5 @@
 @font-face {
-    src: url("Font/Leyton.ttf"),
+    src: url("Font/Leyton.ttf");
 }
 .anchor-pane-1 {
     -fx-border-radius: 10px;
@@ -40,9 +40,23 @@
 .button2 {
     -fx-text-fill: white; /* Màu chữ */
     -fx-font-size: 12px; /* Kích thước chữ */
-    -fx-pref-width: 100px;
-    -fx-pref-height: 40px;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 30px;
 }
+
+.button2:hover {
+    -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
+}
+
+.button2:pressed {
+    -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
+}
+
+.star-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+}
+
 
 .text_area {
     -fx-font-size: 14px;

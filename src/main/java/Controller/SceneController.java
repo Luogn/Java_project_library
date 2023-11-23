@@ -22,13 +22,13 @@ public class SceneController {
     AnchorPane parentPane;
 
 
-    ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
+    private final ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/search_symbol.png"))));
-    ImageView imgView2 = new ImageView(new Image(Objects.requireNonNull
+    private final ImageView imgView2 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/bookmark.png"))));
-    ImageView imgView3 = new ImageView(new Image(Objects.requireNonNull
+    private final ImageView imgView3 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/games.png"))));
-    final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
+    private final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
         (getClass().getResourceAsStream("/Icon/google_translate.png"))));
 
     @FXML
@@ -69,12 +69,12 @@ public class SceneController {
         button4.setGraphic(imgView4);
     }
 
-    private void fadeInTransition(AnchorPane node) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
-        fadeTransition.setFromValue(0.0);
-        fadeTransition.setToValue(1.0);
-        fadeTransition.play();
-    }
+//    private void fadeInTransition(AnchorPane node) {
+//        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
+//        fadeTransition.setFromValue(0.0);
+//        fadeTransition.setToValue(1.0);
+//        fadeTransition.play();
+//    }
 
     private void translateTransition(AnchorPane node, double fromX, double toX, double fromY, double toY) {
         TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), node);
@@ -87,7 +87,7 @@ public class SceneController {
 
     public void switchToScene1() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/DictionaryController.fxml"));
-        DictionaryController paneDict = fxml.getController();
+        DictionaryController paneDict = new DictionaryController();
         button1.setScaleX(1.5);
         button1.setScaleY(1.5);
 
@@ -98,8 +98,9 @@ public class SceneController {
         button3.setScaleY(1.0);
         button4.setScaleX(1.0);
         button4.setScaleY(1.0);
+
         AnchorPane childPane = fxml.load();
-        fadeInTransition(childPane);
+        translateTransition(childPane, -300, 0, 0, 0);
 
         parentPane.getChildren().setAll(childPane);
 
@@ -107,7 +108,7 @@ public class SceneController {
 
     public void switchToScene2() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/WordMarkController.fxml"));
-        DictionaryController paneDict = fxml.getController();
+        WordMarkController paneDict = fxml.getController();
         // Phóng to button hiện tại
         button2.setScaleX(1.5);
         button2.setScaleY(1.5);
@@ -127,7 +128,7 @@ public class SceneController {
 
     public void switchToScene3() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/GameController.fxml"));
-        DictionaryController paneDict = fxml.getController();
+        GameController paneDict = fxml.getController();
 
         // Phóng to button hiện tại
         button3.setScaleX(1.5);
@@ -141,13 +142,13 @@ public class SceneController {
         button4.setScaleX(1.0);
         button4.setScaleY(1.0);
         AnchorPane childPane = fxml.load();
-        translateTransition(childPane, 900, 0, 0, 0);
+        translateTransition(childPane, -300, 0, 0, 0);
         parentPane.getChildren().setAll(childPane);
     }
 
     public void switchToScene4() throws Exception {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Controller/TranslationController.fxml"));
-        DictionaryController paneDict = fxml.getController();
+        TranslationController paneDict = fxml.getController();
 
         button4.setScaleX(1.5);
         button4.setScaleY(1.5);
@@ -160,7 +161,7 @@ public class SceneController {
         button3.setScaleX(1.0);
         button3.setScaleY(1.0);
         AnchorPane childPane = fxml.load();
-        translateTransition(childPane, 0, 0, -200, 0);
+        translateTransition(childPane, -300, 0, 0, 0);
         parentPane.getChildren().setAll(childPane);
     }
 }
