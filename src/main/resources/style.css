@@ -1,0 +1,80 @@
+@font-face {
+    src: url("Font/Leyton.ttf");
+}
+.anchor-pane-1 {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 800px;
+    -fx-pref-height: 600px;
+    -fx-max-width: 800;
+    -fx-background-color: #F5F5DC;
+}
+
+.anchor-pane-2 {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 800px;
+    -fx-pref-height: 500px;
+    -fx-max-width: 800;
+    -fx-background-color: #F5F5DC;
+}
+
+.button {
+    -fx-background-color: #CD853F; /* Màu nền */
+    -fx-padding: 8px 16px;
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+}//
+
+.button:hover {
+    -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
+}
+
+.button:pressed {
+    -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
+}
+
+.button2 {
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-font-size: 12px; /* Kích thước chữ */
+    -fx-pref-width: 80px;
+    -fx-pref-height: 30px;
+}
+
+.button2:hover {
+    -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
+}
+
+.button2:pressed {
+    -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
+}
+
+.star-button {
+    -fx-background-color: transparent;
+    -fx-background-image: url("Icon/star.png");
+    -fx-background-radius: 0;
+}
+
+
+.text_area {
+    -fx-font-size: 14px;
+    -fx-pref-width: 320px;
+    -fx-pref-height: 200px;
+}
+
+.title-label {
+    -fx-font-family: "Leyton";
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 100px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-translate-x: 50%;
+    -fx-translate-y: 50%;
+    -fx-transform: translate(-50%, -50%);
+}
