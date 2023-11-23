@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 
 public class DictionaryManagement {
-    static final String filepath_read = "src\\main\\resources\\Neccessary\\dictionaries.txt";
-    static final String filepath_write = "src\\main\\resources\\Neccessary\\words_alpha.txt";
+    static final String filepath_read = "src\\main\\resources\\dictionaries.txt";
+    static final String filepath_write = "src\\main\\resources\\words_alpha.txt";
 
     public static void insertFromCommandline() {
 

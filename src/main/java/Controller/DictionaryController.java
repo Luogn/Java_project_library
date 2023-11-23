@@ -28,8 +28,8 @@ public class DictionaryController implements Initializable {
     private TextArea my_textarea;
     @FXML
     private Button bookMark;
-    private final ImageView imgViewMark = new ImageView(new Image(Objects.requireNonNull
-            (getClass().getResourceAsStream("/Icon/star.png"))));
+//    private final ImageView imgViewMark = new ImageView(new Image(Objects.requireNonNull
+//            (getClass().getResourceAsStream("/Icon/star.png"))));
 
     public void search() {
         // Chỉ hiển thị listView khi bắt đầu search
@@ -58,11 +58,11 @@ public class DictionaryController implements Initializable {
         });
     }
 
-    public void displayButton() {
-        imgViewMark.setFitWidth(bookMark.getHeight());
-        imgViewMark.setFitHeight(bookMark.getHeight());
-        bookMark.setGraphic(imgViewMark);
-    }
+//    public void displayButton() {
+//        imgViewMark.setFitWidth(bookMark.getHeight());
+//        imgViewMark.setFitHeight(bookMark.getHeight());
+//        bookMark.setGraphic(imgViewMark);
+//    }
     public void addbookmark () {
         String word = my_textfield.getText();
         WordMarkController.bookMark.add(word);
