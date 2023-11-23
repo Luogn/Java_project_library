@@ -27,7 +27,7 @@
     -fx-padding: 8px 16px; /* Khoảng cách các viền trong button */
     -fx-pref-width: 30px;
     -fx-pref-height: 30px;
-}//
+}
 
 .button:hover {
     -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
@@ -53,7 +53,6 @@
 }
 
 .star-button {
-    -fx-background-color: transparent;
     -fx-background-image: url("Icon/star.png");
     -fx-background-radius: 0;
 }
@@ -70,6 +69,19 @@
     -fx-font-weight: bold;
     -fx-font-size: 30px;
     -fx-text-fill: white;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 100px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-translate-x: 50%;
+    -fx-translate-y: 50%;
+    -fx-transform: translate(-50%, -50%);
+}
+
+.time-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-text-fill: black;
     -fx-pref-width: 600px;
     -fx-pref-height: 100px;
     -fx-alignment: center;

@@ -34,7 +34,7 @@ public class TranslationController {
             Gson gson = new Gson();
             List<List<List<String>>> jsonData = gson.fromJson(result, List.class);
 
-                List<List<String>> translationItems = jsonData.get(0);
+            List<List<String>> translationItems = jsonData.get(0);
 
             StringBuilder translation = new StringBuilder();
 

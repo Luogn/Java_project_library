@@ -15,12 +15,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class SceneController {
     @FXML
     AnchorPane parentPane;
-
+    @FXML
+    Label dateDisplay;
+    LocalDateTime dateTime = LocalDateTime.now();
 
     private final ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/search_symbol.png"))));
@@ -30,6 +33,10 @@ public class SceneController {
             (getClass().getResourceAsStream("/Icon/games.png"))));
     private final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
         (getClass().getResourceAsStream("/Icon/google_translate.png"))));
+    private final ImageView imgView5 = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Icon/history.png"))));
+    private final ImageView imgView6 = new ImageView(new Image(Objects.requireNonNull
+            (getClass().getResourceAsStream("/Icon/logout.png"))));
 
     @FXML
     Button button1;
@@ -39,6 +46,10 @@ public class SceneController {
     Button button3;
     @FXML
     Button button4;
+    @FXML
+    Button button5;
+    @FXML
+    Button button6;
 
 
     private Stage stage;
@@ -58,15 +69,19 @@ public class SceneController {
         imgView4.setFitHeight(button4.getHeight());
         imgView4.setFitWidth(button4.getWidth());
 
-        System.out.println(button1.getHeight());
-        System.out.println(button1.getWidth());
-        System.out.println(button2.getHeight());
-        System.out.println(button2.getWidth());
+        imgView5.setFitHeight(button5.getHeight());
+        imgView5.setFitWidth(button5.getWidth());
+
+        imgView6.setFitHeight(button6.getHeight());
+        imgView6.setFitWidth(button6.getWidth());
+
 
         button2.setGraphic(imgView2);
         button3.setGraphic(imgView3);
         button1.setGraphic(imgView1);
         button4.setGraphic(imgView4);
+        button5.setGraphic(imgView5);
+        button6.setGraphic(imgView6);
     }
 
 //    private void fadeInTransition(AnchorPane node) {
@@ -163,5 +178,13 @@ public class SceneController {
         AnchorPane childPane = fxml.load();
         translateTransition(childPane, -300, 0, 0, 0);
         parentPane.getChildren().setAll(childPane);
+    }
+
+    public void displayTime() {
+        String str = String.format("%-19s" , dateTime.toString());
+        dateDisplay.setText(dateTime.toString());
+    }
+    public void closeAllScene() {
+        parentPane.getChildren().clear();
     }
 }

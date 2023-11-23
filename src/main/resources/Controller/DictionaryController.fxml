@@ -18,7 +18,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <Button fx:id="bookMark" layoutX="687.0" layoutY="137.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="52.0" prefWidth="52.0" styleClass="star-button" text="Button" />
+      <Button fx:id="bookMark" layoutX="687.0" layoutY="137.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="52.0" prefWidth="52.0" style="-fx-background-image: Icon/star.png;" styleClass="star-button" text="Button" />
    </children>
    <effect>
       <ColorAdjust />
