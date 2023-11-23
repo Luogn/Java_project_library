@@ -44,8 +44,8 @@ public class DictionaryController implements Initializable {
         my_textfield.setOnKeyReleased(event -> {
             String str = my_textfield.getText();
             my_listView.getItems().clear(); //Xóa list view để khi tra lại không hiển thị lại các từ đã tra.
-            List<Word> list = DictionaryCommandLine.dictionarySearcher(str);
-            List<String> arr = Dictionary.getTargetList(list);
+//            List<Word> list = DictionaryCommandLine.dictionarySearcher(str);
+            List<String> arr = DictionaryCommandLine.dictionarySearcher(str);
             my_listView.getItems().addAll(arr);
         });
 

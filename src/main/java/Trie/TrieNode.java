@@ -11,4 +11,8 @@ class TrieNode {
         children = new HashMap<>();
         isWord = false;
     }
+
+    public boolean isWord() {
+        return isWord;
+    }
 }

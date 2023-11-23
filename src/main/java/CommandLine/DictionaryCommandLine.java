@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class DictionaryCommandLine {
     public static Scanner sc = new Scanner(System.in);
     public static void showAllWord() {
@@ -15,16 +16,16 @@ public class DictionaryCommandLine {
         }
     }
 
-    public static List<Word> dictionarySearcher(String target) {
-        List<Word> searchList = new ArrayList<>();
+    public static List<String> dictionarySearcher(String target) {
+        List<String> searchList = Dictionary.getTrie().getAllWordsWithPrefix(target);
 
 
-        for(int i=0;i<Dictionary.getSize();i++) {
-            if(target.equals(Dictionary.getWordList().get(i).getWordTarget())) {
-                Word rand = Dictionary.getWordList().get(i);
-                searchList.add(rand);
-            }
-        }
+//        for(int i=0;i<Dictionary.getSize();i++) {
+//            if(target.equals(Dictionary.getWordList().get(i).getWordTarget())) {
+//                Word rand = Dictionary.getWordList().get(i);
+//                searchList.add(rand);
+//            }
+//        }
 
         return searchList;
     }
@@ -95,9 +96,9 @@ public class DictionaryCommandLine {
         if(noAction == 6) {
             System.out.println("Word you want to search is:");
             String word = sc.nextLine();
-            List<Word> searchList = dictionarySearcher(word);
-            for (Word w : searchList) {
-                System.out.println(w.getWordTarget());
+            List<String> searchList = dictionarySearcher(word);
+            for (String w : searchList) {
+                System.out.println(w);
             }
             System.out.println("Your action has been done!");
             dictionaryAdvanced();

@@ -45,6 +45,7 @@ public class DictionaryManagement {
                 word.setWordExplain(meaning.trim());
                 addWord(word);
             }
+            Dictionary.putWordsinTree();
             bufferedReader.close();
         } catch (IOException e) {
             System.out.println("An error occur with file: " + e);
