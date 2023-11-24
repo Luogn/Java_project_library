@@ -18,7 +18,6 @@ public class WordMarkController implements Initializable {
     ListView<String> listbookmark;
     @FXML
     TextArea textArea;
-    public static ArrayList<String> searchHistory = new ArrayList<>();
     public static ArrayList<String> bookMark = new ArrayList<>();
 
     @Override

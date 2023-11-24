@@ -37,6 +37,7 @@ public class EntranceController {
 
         SceneController scene_ = fxml.getController();
 
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

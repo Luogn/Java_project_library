@@ -30,11 +30,19 @@ public class DictionaryController implements Initializable {
     private ListView<String> my_listView;
     @FXML
     private TextArea my_textarea;
-    @FXML
-    private Button bookMark;
+
+
 //    private final ImageView imgViewMark = new ImageView(new Image(Objects.requireNonNull
 //            (getClass().getResourceAsStream("/Icon/star.png"))));
-    private Button buttonhistory;
+//    private final ImageView imgViewHistory = new ImageView(new Image(Objects.requireNonNull
+//            (getClass().getResourceAsStream("/Icon/history.png"))));
+
+    @FXML
+    Button bookMark = new Button();
+
+    @FXML
+    Button buttonHistory = new Button();
+
     @FXML
     public ListView<String> history ;
 
@@ -61,6 +69,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 String newStr = DictionaryManagement.dictionaryLookup(my_listView.getSelectionModel().getSelectedItem());
+                my_textfield.setText(my_listView.getSelectionModel().getSelectedItem());
                 my_textarea.setText(newStr);
             }
 
@@ -90,11 +99,6 @@ public class DictionaryController implements Initializable {
         });
     }
 
-//    public void displayButton() {
-//        imgViewMark.setFitWidth(bookMark.getHeight());
-//        imgViewMark.setFitHeight(bookMark.getHeight());
-//        bookMark.setGraphic(imgViewMark);
-//    }
     public void addbookmark () {
         String word = my_textfield.getText();
         WordMarkController.bookMark.add(word);
@@ -122,7 +126,6 @@ public class DictionaryController implements Initializable {
             reader.close();
             history.getItems().setAll(dataList);
             history.setVisible(!history.isVisible());
-
-
         }
-    }}
+    }
+}

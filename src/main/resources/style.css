@@ -53,9 +53,20 @@
 }
 
 .star-button {
-    -fx-background-image: url("Icon/star.png");
+    -fx-background-color: transparent;
     -fx-background-radius: 0;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
 }
+
+.star-button:hover {
+    -fx-background-color: #EEE5DE; /* Màu nền khi di chuột vào */
+}
+
+.star-button:pressed {
+    -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
+}
+
 
 
 .text_area {
