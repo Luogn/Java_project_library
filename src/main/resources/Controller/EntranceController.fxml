@@ -18,7 +18,7 @@
          <children>
             <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" styleClass="anchor-pane">
                <image>
-                  <Image url="@../../../../../../../Downloads/background_dict.jpg" />
+                  <Image url="@../background_dict.jpg" />
                </image>
             </ImageView>
             <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="68.0" prefHeight="18.0" prefWidth="330.0" styleClass="title-label" text="WELCOME TO SNOW-E DICTIONARY" />

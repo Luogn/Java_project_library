@@ -38,6 +38,7 @@
 }
 
 .button2 {
+    -fx-background-color: blue;
     -fx-text-fill: white; /* Màu chữ */
     -fx-font-size: 12px; /* Kích thước chữ */
     -fx-pref-width: 80px;

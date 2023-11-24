@@ -44,6 +44,10 @@ public class DictionaryController implements Initializable {
     Button buttonHistory = new Button();
 
     @FXML
+    Button buttonDelete = new Button();
+
+    @FXML
+    Button buttonEdit = new Button();
     public ListView<String> history ;
 
     public ArrayList<String> historyword = new ArrayList<>();
@@ -99,9 +103,21 @@ public class DictionaryController implements Initializable {
         });
     }
 
-    public void addbookmark () {
+    public void addbookmark() {
         String word = my_textfield.getText();
         WordMarkController.bookMark.add(word);
+    }
+
+    public void deleteWord() {
+        String word = my_textfield.getText();
+        DictionaryManagement.removeWord(word);
+    }
+
+    public void editWord() {
+        String word = my_textfield.getText();
+        String strIn = "";
+        String action = "";
+        DictionaryManagement.update(word, strIn, action);
     }
 
     public void Historyword() throws IOException {

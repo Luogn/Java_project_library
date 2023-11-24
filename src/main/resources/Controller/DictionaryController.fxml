@@ -15,7 +15,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFEC8B;" styleClass="anchor-pane-2" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictionaryController">
    <children>
       <TextField fx:id="my_textfield" layoutX="29.0" layoutY="62.0" prefHeight="30.0" prefWidth="148.0" />
-      <Button contentDisplay="BOTTOM" layoutX="180.0" layoutY="52.0" maxWidth="252.0" minHeight="37.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="122.0" styleClass="button2" stylesheets="@../style.css" text="Search" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="498.0" AnchorPane.topAnchor="52.0" />
+      <Button contentDisplay="BOTTOM" layoutX="180.0" layoutY="52.0" maxWidth="252.0" minHeight="37.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: brown;" styleClass="button2" stylesheets="@../style.css" text="Search" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="498.0" AnchorPane.topAnchor="52.0" />
       <ListView fx:id="my_listView" editable="true" focusTraversable="false" layoutX="29.0" layoutY="90.0" prefHeight="200.0" prefWidth="142.0" />
       <TextArea fx:id="my_textarea" editable="false" layoutX="302.0" layoutY="128.0" prefHeight="288.0" prefWidth="438.0">
          <font>
@@ -30,7 +30,7 @@
             </ImageView>
          </graphic></Button>
       <ListView fx:id="history" layoutX="456.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
-      <Button fx:id="bookMark" layoutX="695.0" layoutY="128.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="40.0" prefWidth="40.0" styleClass="star-button" stylesheets="@../style.css" textOverrun="CLIP">
+      <Button fx:id="bookMark" layoutX="700.0" layoutY="130.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="40.0" prefWidth="40.0" styleClass="star-button" stylesheets="@../style.css" textOverrun="CLIP">
          <graphic>
             <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" styleClass="star-button">
                <image>
@@ -39,6 +39,24 @@
                <viewport>
                   <Rectangle2D />
                </viewport>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonDelete" layoutX="650.0" layoutY="130.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#deleteWord" styleClass="star-button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonEdit" layoutX="600.0" layoutY="130.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#editWord" styleClass="star-button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/edit.png" />
+               </image>
             </ImageView>
          </graphic>
       </Button>
