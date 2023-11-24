@@ -4,6 +4,7 @@ package Controller;
 import CommandLine.Dictionary;
 import CommandLine.DictionaryManagement;
 import CommandLine.Word;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,16 +13,15 @@ import javafx.scene.control.*;
 
 import java.io.*;
 import java.net.URL;
-import java.util.Objects;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import CommandLine.DictionaryCommandLine;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.util.List;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 public class DictionaryController implements Initializable {
     @FXML
@@ -30,12 +30,12 @@ public class DictionaryController implements Initializable {
     private ListView<String> my_listView;
     @FXML
     private TextArea my_textarea;
-
-
-//    private final ImageView imgViewMark = new ImageView(new Image(Objects.requireNonNull
-//            (getClass().getResourceAsStream("/Icon/star.png"))));
-//    private final ImageView imgViewHistory = new ImageView(new Image(Objects.requireNonNull
-//            (getClass().getResourceAsStream("/Icon/history.png"))));
+    @FXML
+    private TextField insertField;
+    @FXML
+    private TextArea insertArea;
+    @FXML
+    private AnchorPane insertPane;
 
     @FXML
     Button bookMark = new Button();
@@ -55,7 +55,17 @@ public class DictionaryController implements Initializable {
     @FXML
     Button checkUpdated = new Button();
 
+    @FXML
+    Button checkInsert = new Button();
+
     public ListView<String> history ;
+
+    private void fadeInTransition(AnchorPane node) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
+    }
 
     public ArrayList<String> historyword = new ArrayList<>();
     public void search() throws Exception {
@@ -121,7 +131,17 @@ public class DictionaryController implements Initializable {
     }
 
     public void insertWord() {
+        checkInsert.setVisible(true);
+        insertPane.setVisible(true);
+        fadeInTransition(insertPane);
+    }
 
+    public void doneInsert() {
+        String newWord = insertField.getText();
+        String newMeaning = "\n" + insertArea.getText();
+        DictionaryManagement.addWord(newWord, newMeaning);
+        checkInsert.setVisible(false);
+        insertPane.setVisible(false);
     }
 
     public void editWord() {
@@ -137,7 +157,7 @@ public class DictionaryController implements Initializable {
     }
 
     public void Historyword() throws IOException {
-        ObservableList<String> dataList = FXCollections.observableArrayList();
+        List<String> data_list = new ArrayList<>();
 
         BufferedReader reader = null;
         try {
@@ -153,10 +173,11 @@ public class DictionaryController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            dataList.add(line);
+            data_list.add(line);
+            Collections.reverse(data_list);
         }
         reader.close();
-        history.getItems().setAll(dataList);
+        history.getItems().setAll(data_list);
         history.setVisible(!history.isVisible());
 
     }

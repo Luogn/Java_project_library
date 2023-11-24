@@ -86,13 +86,6 @@ public class SceneController {
         button6.setGraphic(imgView6);
     }
 
-//    private void fadeInTransition(AnchorPane node) {
-//        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
-//        fadeTransition.setFromValue(0.0);
-//        fadeTransition.setToValue(1.0);
-//        fadeTransition.play();
-//    }
-
     private void translateTransition(AnchorPane node, double fromX, double toX, double fromY, double toY) {
         TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), node);
         translateTransition.setFromX(fromX);
