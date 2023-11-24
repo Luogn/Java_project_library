@@ -129,19 +129,19 @@ public class DictionaryController implements Initializable {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        {
-            String line;
-            while (true) {
-                try {
-                    if (!((line = reader.readLine()) != null)) break;
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                dataList.add(line);
+
+        String line;
+        while (true) {
+            try {
+                if (!((line = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            reader.close();
-            history.getItems().setAll(dataList);
-            history.setVisible(!history.isVisible());
+            dataList.add(line);
         }
+        reader.close();
+        history.getItems().setAll(dataList);
+        history.setVisible(!history.isVisible());
+
     }
 }
