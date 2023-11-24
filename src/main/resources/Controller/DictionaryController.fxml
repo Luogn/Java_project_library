@@ -21,7 +21,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <Button fx:id="buttonHistory" contentDisplay="GRAPHIC_ONLY" layoutX="550.0" layoutY="100.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#Historyword" styleClass="star-button" stylesheets="@../style.css">
+      <Button fx:id="buttonHistory" contentDisplay="GRAPHIC_ONLY" layoutX="700.0" layoutY="100.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#Historyword" styleClass="star-button" stylesheets="@../style.css">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,8 +29,8 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <ListView fx:id="history" layoutX="545.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
-      <Button fx:id="bookMark" layoutX="700.0" layoutY="100.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="40.0" prefWidth="40.0" styleClass="star-button" stylesheets="@../style.css" textOverrun="CLIP">
+      <ListView fx:id="history" layoutX="545.0" layoutY="140.0" prefHeight="302.0" prefWidth="200.0" visible="false" />
+      <Button fx:id="bookMark" layoutX="500.0" layoutY="100.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#addbookmark" prefHeight="40.0" prefWidth="40.0" styleClass="star-button" stylesheets="@../style.css" textOverrun="CLIP">
          <graphic>
             <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" styleClass="star-button">
                <image>
@@ -56,6 +56,24 @@
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Icon/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonInsert" layoutX="550.0" layoutY="100.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#insertWord" styleClass="star-button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/insert.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="checkUpdated" layoutX="750.0" layoutY="160.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#doneUpdate" styleClass="star-button" visible="false">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icon/check.png" />
                </image>
             </ImageView>
          </graphic>

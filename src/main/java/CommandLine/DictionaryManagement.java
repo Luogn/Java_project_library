@@ -19,8 +19,7 @@ public class DictionaryManagement {
             String engWords = sd.nextLine();
             System.out.println("its meaning:");
             String meaning = sd.nextLine();
-            Word rand = new Word(engWords, meaning);
-            addWord(rand);
+            addWord(engWords, meaning);
         }
     }
 
@@ -43,7 +42,7 @@ public class DictionaryManagement {
                         break;
                     }
                 word.setWordExplain(meaning.trim());
-                addWord(word);
+                addWord(word.getWordTarget(), word.getWordExplain());
             }
             Dictionary.putWordsinTree();
             bufferedReader.close();
@@ -95,8 +94,10 @@ public class DictionaryManagement {
         return res.toString();
     }
 
-    public static void addWord(Word word) {
+    public static void addWord(String wordTarget, String wordMeaning) {
+        Word word = new Word(wordTarget, wordMeaning);
         Dictionary.getWordList().add(word);
+        Dictionary.getTrie().insert(word.getWordTarget());
     }
 
     public static void removeWord(String word) {
@@ -106,6 +107,7 @@ public class DictionaryManagement {
                 i--;
             }
         }
+        Dictionary.getTrie().delete(word);
     }
 
     public static void update(String wordE,String wordM, String action) {

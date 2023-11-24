@@ -48,6 +48,13 @@ public class DictionaryController implements Initializable {
 
     @FXML
     Button buttonEdit = new Button();
+
+    @FXML
+    Button buttonInsert = new Button();
+
+    @FXML
+    Button checkUpdated = new Button();
+
     public ListView<String> history ;
 
     public ArrayList<String> historyword = new ArrayList<>();
@@ -113,11 +120,20 @@ public class DictionaryController implements Initializable {
         DictionaryManagement.removeWord(word);
     }
 
+    public void insertWord() {
+
+    }
+
     public void editWord() {
-        String word = my_textfield.getText();
-        String strIn = "";
-        String action = "";
-        DictionaryManagement.update(word, strIn, action);
+        my_textarea.setEditable(true);
+        checkUpdated.setVisible(true);
+    }
+
+    public void doneUpdate() {
+        String updatedStr = my_textarea.getText();
+        DictionaryManagement.update(my_textfield.getText(), updatedStr, "CHANGE");
+        my_textarea.setEditable(false);
+        checkUpdated.setVisible(false);
     }
 
     public void Historyword() throws IOException {
