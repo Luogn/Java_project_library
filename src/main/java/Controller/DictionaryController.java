@@ -17,6 +17,9 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +53,8 @@ public class DictionaryController implements Initializable {
 
     @FXML
     Button buttonInsert = new Button();
+    @FXML
+    Button deletehistory = new Button();
 
     @FXML
     Button checkUpdated = new Button();
@@ -187,7 +192,21 @@ public class DictionaryController implements Initializable {
         reader.close();
         history.getItems().setAll(data_list);
         history.setVisible(!history.isVisible());
+        deletehistory.setVisible(history.isVisible());
 
+
+    }
+        public void setDeletehistory() {
+        String filePath = "src\\main\\resources\\Neccessary\\historyword.txt";
+
+        try {
+            Path path = Paths.get(filePath);
+                // Xóa toàn bộ nội dung của file
+                Files.write(path, new byte[0]);
+                my_textarea.setText("đã xóa lịch sử!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Speaktext() {
