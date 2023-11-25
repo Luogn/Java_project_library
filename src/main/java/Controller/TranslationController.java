@@ -30,7 +30,6 @@ public class TranslationController {
 
             HttpResponse response = httpClient.execute(request);
             String result = EntityUtils.toString(response.getEntity());
-
             Gson gson = new Gson();
             List<List<List<String>>> jsonData = gson.fromJson(result, List.class);
 

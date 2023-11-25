@@ -93,6 +93,7 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button layoutX="400.0" layoutY="100.0" mnemonicParsing="false" onAction="#Speaktext" styleClass="button2" text="speak" />
    </children>
    <effect>
       <ColorAdjust />

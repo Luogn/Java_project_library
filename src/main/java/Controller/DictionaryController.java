@@ -1,27 +1,28 @@
 package Controller;
 
 
-import CommandLine.Dictionary;
+import CommandLine.DictionaryCommandLine;
 import CommandLine.DictionaryManagement;
-import CommandLine.Word;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.animation.FadeTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
-import java.util.*;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import CommandLine.DictionaryCommandLine;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class DictionaryController implements Initializable {
     @FXML
@@ -115,6 +116,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 String newStr = DictionaryManagement.dictionaryLookup(history.getSelectionModel().getSelectedItem());
+                my_textfield.setText(history.getSelectionModel().getSelectedItem());
                 my_textarea.setText(newStr);
             }
         });
@@ -180,5 +182,32 @@ public class DictionaryController implements Initializable {
         history.getItems().setAll(data_list);
         history.setVisible(!history.isVisible());
 
+    }
+    public  void Speaktext () {
+//        try {
+//            String text = my_textfield.getText();
+//            String urlStr = "https://translate.google.com/translate_tts?ie=UTF-8&tl="
+//                    + "en"
+//                    + "&client=tw-ob&q="
+//                    + URLEncoder.encode(text, StandardCharsets.UTF_8);
+//
+//            URL url = new URL(urlStr);
+//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//            InputStream audio = con.getInputStream();
+//            new Player(audio).play();
+//            con.disconnect();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        String text = my_textfield.getText();
+        APITTS.audioPhat(text);
+    }
+    public void SoundText() {
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        if (voice != null) {
+            voice.allocate();
+            voice.speak(my_textfield.getText());
+        } else throw new IllegalStateException("Cannot find voice: kevin16");
     }
 }
