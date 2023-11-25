@@ -71,9 +71,6 @@ public class SceneController {
         imgView4.setFitHeight(button4.getHeight());
         imgView4.setFitWidth(button4.getWidth());
 
-//        imgView5.setFitHeight(button5.getHeight());
-//        imgView5.setFitWidth(button5.getWidth());
-
         imgView6.setFitHeight(button6.getHeight());
         imgView6.setFitWidth(button6.getWidth());
 
@@ -82,7 +79,6 @@ public class SceneController {
         button3.setGraphic(imgView3);
         button1.setGraphic(imgView1);
         button4.setGraphic(imgView4);
-//        button5.setGraphic(imgView5);
         button6.setGraphic(imgView6);
     }
 
