@@ -3,8 +3,6 @@ package Controller;
 
 import CommandLine.DictionaryCommandLine;
 import CommandLine.DictionaryManagement;
-import com.sun.speech.freetts.Voice;
-import com.sun.speech.freetts.VoiceManager;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -59,7 +57,7 @@ public class DictionaryController implements Initializable {
     @FXML
     Button checkInsert = new Button();
 
-    public ListView<String> history ;
+    public ListView<String> history;
 
     private void fadeInTransition(AnchorPane node) {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
@@ -69,9 +67,10 @@ public class DictionaryController implements Initializable {
     }
 
     public ArrayList<String> historyword = new ArrayList<>();
+
     public void search() throws Exception {
         // Chỉ hiển thị listView khi bắt đầu search
-        if(!(my_listView.isVisible())) {
+        if (!(my_listView.isVisible())) {
             my_listView.setVisible(true);
         }
         initialize(null, null);
@@ -124,7 +123,7 @@ public class DictionaryController implements Initializable {
 
     public void addbookmark() {
         String word = my_textfield.getText();
-        if(!word.isEmpty()) {
+        if (!word.isEmpty()) {
             for (int i = 0; i < WordMarkController.bookMark.size(); i++) {
                 if (word.equals(WordMarkController.bookMark.get(i))) {
                     return;
@@ -140,8 +139,8 @@ public class DictionaryController implements Initializable {
     }
 
     public void insertWord() {
-        checkInsert.setVisible(true);
-        insertPane.setVisible(true);
+        checkInsert.setVisible(!checkInsert.isVisible());
+        insertPane.setVisible(checkInsert.isVisible());
         fadeInTransition(insertPane);
     }
 
@@ -190,31 +189,10 @@ public class DictionaryController implements Initializable {
         history.setVisible(!history.isVisible());
 
     }
-    public  void Speaktext () {
-//        try {
-//            String text = my_textfield.getText();
-//            String urlStr = "https://translate.google.com/translate_tts?ie=UTF-8&tl="
-//                    + "en"
-//                    + "&client=tw-ob&q="
-//                    + URLEncoder.encode(text, StandardCharsets.UTF_8);
-//
-//            URL url = new URL(urlStr);
-//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//            InputStream audio = con.getInputStream();
-//            new Player(audio).play();
-//            con.disconnect();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
+    public void Speaktext() {
         String text = my_textfield.getText();
         APITTS.audioPhat(text);
     }
-    public void SoundText() {
-        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
-        if (voice != null) {
-            voice.allocate();
-            voice.speak(my_textfield.getText());
-        } else throw new IllegalStateException("Cannot find voice: kevin16");
-    }
 }
+
