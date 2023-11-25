@@ -124,7 +124,14 @@ public class DictionaryController implements Initializable {
 
     public void addbookmark() {
         String word = my_textfield.getText();
-        WordMarkController.bookMark.add(word);
+        if(!word.isEmpty()) {
+            for (int i = 0; i < WordMarkController.bookMark.size(); i++) {
+                if (word.equals(WordMarkController.bookMark.get(i))) {
+                    return;
+                }
+            }
+            WordMarkController.bookMark.add(word);
+        }
     }
 
     public void deleteWord() {
