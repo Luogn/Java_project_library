@@ -25,8 +25,7 @@ public class DictionaryManagement {
 
     public static void insertFromFile() {
         try {
-            FileReader fileReader = new FileReader(filepath_read);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath_read));
             String englishWord = bufferedReader.readLine();
             englishWord = englishWord.replace("|", "");
             String line;

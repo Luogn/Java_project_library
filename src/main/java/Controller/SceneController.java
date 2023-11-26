@@ -46,9 +46,6 @@ public class SceneController {
             (getClass().getResourceAsStream("/Icon/games.png"))));
     private final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
         (getClass().getResourceAsStream("/Icon/google_translate.png"))));
-
-//    private final ImageView imgView5 = new ImageView(new Image(Objects.requireNonNull
-//            (getClass().getResourceAsStream("/Icon/history.png"))));
     private final ImageView imgView6 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/logout.png"))));
 
