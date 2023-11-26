@@ -93,6 +93,8 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button layoutX="400.0" layoutY="100.0" mnemonicParsing="false" onAction="#Speaktext" styleClass="button2" text="speak" />
+      <Button fx:id="deletehistory" layoutX="690.0" layoutY="60.0" mnemonicParsing="false" onAction="#setDeletehistory" prefHeight="37.0" prefWidth="64.0" styleClass="button2" text="deletehistory" visible="false" />
    </children>
    <effect>
       <ColorAdjust />

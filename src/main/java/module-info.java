@@ -9,6 +9,10 @@ module AppScreen {
     requires org.apache.httpcomponents.httpcore;
     requires org.apache.httpcomponents.httpclient;
     requires com.google.gson;
+    requires java.net.http;
+    requires jlayer;
+    requires freetts;
+    requires java.desktop;
 
     opens AppScreen to javafx.fxml;
     exports AppScreen;

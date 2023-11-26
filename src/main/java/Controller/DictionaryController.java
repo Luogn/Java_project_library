@@ -1,27 +1,29 @@
 package Controller;
 
 
-import CommandLine.Dictionary;
+import CommandLine.DictionaryCommandLine;
 import CommandLine.DictionaryManagement;
-import CommandLine.Word;
 import javafx.animation.FadeTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
-import java.util.*;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import CommandLine.DictionaryCommandLine;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class DictionaryController implements Initializable {
     @FXML
@@ -51,6 +53,8 @@ public class DictionaryController implements Initializable {
 
     @FXML
     Button buttonInsert = new Button();
+    @FXML
+    Button deletehistory = new Button();
 
     @FXML
     Button checkUpdated = new Button();
@@ -58,7 +62,7 @@ public class DictionaryController implements Initializable {
     @FXML
     Button checkInsert = new Button();
 
-    public ListView<String> history ;
+    public ListView<String> history;
 
     private void fadeInTransition(AnchorPane node) {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), node);
@@ -68,9 +72,10 @@ public class DictionaryController implements Initializable {
     }
 
     public ArrayList<String> historyword = new ArrayList<>();
+
     public void search() throws Exception {
         // Chỉ hiển thị listView khi bắt đầu search
-        if(!(my_listView.isVisible())) {
+        if (!(my_listView.isVisible())) {
             my_listView.setVisible(true);
         }
         initialize(null, null);
@@ -115,6 +120,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 String newStr = DictionaryManagement.dictionaryLookup(history.getSelectionModel().getSelectedItem());
+                my_textfield.setText(history.getSelectionModel().getSelectedItem());
                 my_textarea.setText(newStr);
             }
         });
@@ -122,7 +128,14 @@ public class DictionaryController implements Initializable {
 
     public void addbookmark() {
         String word = my_textfield.getText();
-        WordMarkController.bookMark.add(word);
+        if (!word.isEmpty()) {
+            for (int i = 0; i < WordMarkController.bookMark.size(); i++) {
+                if (word.equals(WordMarkController.bookMark.get(i))) {
+                    return;
+                }
+            }
+            WordMarkController.bookMark.add(word);
+        }
     }
 
     public void deleteWord() {
@@ -131,8 +144,8 @@ public class DictionaryController implements Initializable {
     }
 
     public void insertWord() {
-        checkInsert.setVisible(true);
-        insertPane.setVisible(true);
+        checkInsert.setVisible(!checkInsert.isVisible());
+        insertPane.setVisible(checkInsert.isVisible());
         fadeInTransition(insertPane);
     }
 
@@ -179,6 +192,26 @@ public class DictionaryController implements Initializable {
         reader.close();
         history.getItems().setAll(data_list);
         history.setVisible(!history.isVisible());
+        deletehistory.setVisible(history.isVisible());
+
 
     }
+        public void setDeletehistory() {
+        String filePath = "src\\main\\resources\\Neccessary\\historyword.txt";
+
+        try {
+            Path path = Paths.get(filePath);
+                // Xóa toàn bộ nội dung của file
+                Files.write(path, new byte[0]);
+                my_textarea.setText("đã xóa lịch sử!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void Speaktext() {
+        String text = my_textfield.getText();
+        APITTS.audioPhat(text);
+    }
 }
+
