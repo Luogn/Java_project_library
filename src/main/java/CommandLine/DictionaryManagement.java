@@ -88,7 +88,7 @@ public class DictionaryManagement {
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
-                res.append(rand.getWordTarget()).append(" ").append(rand.getWordExplain());
+                res.append(rand.getWordTarget()).append("\n").append(rand.getWordExplain());
             }
         }
         return res.toString();

@@ -86,7 +86,6 @@ public class DictionaryController implements Initializable {
         my_textfield.setOnKeyReleased(event -> {
             String str = my_textfield.getText();
             my_listView.getItems().clear(); //Xóa list view để khi tra lại không hiển thị lại các từ đã tra.
-//            List<Word> list = DictionaryCommandLine.dictionarySearcher(str);
             List<String> arr = DictionaryCommandLine.dictionarySearcher(str);
             my_listView.getItems().addAll(arr);
         });
@@ -98,7 +97,6 @@ public class DictionaryController implements Initializable {
                 my_textfield.setText(my_listView.getSelectionModel().getSelectedItem());
                 my_textarea.setText(newStr);
             }
-
         });
         my_listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -147,6 +145,7 @@ public class DictionaryController implements Initializable {
         checkInsert.setVisible(!checkInsert.isVisible());
         insertPane.setVisible(checkInsert.isVisible());
         fadeInTransition(insertPane);
+        checkUpdated.setVisible(false);
     }
 
     public void doneInsert() {
@@ -160,6 +159,7 @@ public class DictionaryController implements Initializable {
     public void editWord() {
         my_textarea.setEditable(true);
         checkUpdated.setVisible(true);
+        insertPane.setVisible(false);
     }
 
     public void doneUpdate() {
@@ -192,9 +192,7 @@ public class DictionaryController implements Initializable {
         reader.close();
         history.getItems().setAll(data_list);
         history.setVisible(!history.isVisible());
-        deletehistory.setVisible(history.isVisible());
-
-
+        deletehistory.setVisible(true);
     }
         public void setDeletehistory() {
         String filePath = "src\\main\\resources\\Neccessary\\historyword.txt";
@@ -203,10 +201,11 @@ public class DictionaryController implements Initializable {
             Path path = Paths.get(filePath);
                 // Xóa toàn bộ nội dung của file
                 Files.write(path, new byte[0]);
-                my_textarea.setText("đã xóa lịch sử!");
+                my_textarea.setText("đã xóa toàn bộ lịch sử!");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        deletehistory.setVisible(false);
     }
 
     public void Speaktext() {
