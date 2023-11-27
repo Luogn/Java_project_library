@@ -43,7 +43,7 @@ public class EntranceController {
         stage.setScene(scene);
 
         scene_.displayButton();
-        scene_.displayTime();
+        scene_.updateTimeLabel();
 
         stage.show();
     }

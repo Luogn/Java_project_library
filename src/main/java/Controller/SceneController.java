@@ -2,6 +2,7 @@ package Controller;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -23,7 +30,12 @@ public class SceneController {
     @FXML
     AnchorPane parentPane;
     @FXML
-    Label dateDisplay;
+    Label timeLabel = new Label();
+    @FXML
+    Label periodLabel = new Label();
+    @FXML
+    Label dateLabel = new Label();
+
     LocalDateTime dateTime = LocalDateTime.now();
 
     private final ImageView imgView1 = new ImageView(new Image(Objects.requireNonNull
@@ -34,9 +46,6 @@ public class SceneController {
             (getClass().getResourceAsStream("/Icon/games.png"))));
     private final ImageView imgView4 = new ImageView(new Image(Objects.requireNonNull
         (getClass().getResourceAsStream("/Icon/google_translate.png"))));
-
-//    private final ImageView imgView5 = new ImageView(new Image(Objects.requireNonNull
-//            (getClass().getResourceAsStream("/Icon/history.png"))));
     private final ImageView imgView6 = new ImageView(new Image(Objects.requireNonNull
             (getClass().getResourceAsStream("/Icon/logout.png"))));
 
@@ -48,8 +57,6 @@ public class SceneController {
     Button button3;
     @FXML
     Button button4;
-//    @FXML
-//    Button button5;
     @FXML
     Button button6;
 
@@ -71,9 +78,6 @@ public class SceneController {
         imgView4.setFitHeight(button4.getHeight());
         imgView4.setFitWidth(button4.getWidth());
 
-//        imgView5.setFitHeight(button5.getHeight());
-//        imgView5.setFitWidth(button5.getWidth());
-
         imgView6.setFitHeight(button6.getHeight());
         imgView6.setFitWidth(button6.getWidth());
 
@@ -82,8 +86,54 @@ public class SceneController {
         button3.setGraphic(imgView3);
         button1.setGraphic(imgView1);
         button4.setGraphic(imgView4);
-//        button5.setGraphic(imgView5);
         button6.setGraphic(imgView6);
+    }
+
+    public void updateTimeLabel() {
+        LocalDate today = LocalDate.now();
+        DayOfWeek dayOfWeek = today.getDayOfWeek();
+        String dayOfWeekString = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+        Thread updateTimeThread = new Thread(() -> {
+            while (true) {
+                Platform.runLater(() -> {
+                    LocalDateTime currentDateTime = LocalDateTime.now();
+
+                    // Định dạng ngày
+                    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    String formattedDate = currentDateTime.format(dateFormatter);
+                    dateLabel.setText(dayOfWeekString+" "+formattedDate);
+
+                    // Định dạng thời gian
+                    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    String formattedTime = currentDateTime.format(timeFormatter);
+                    timeLabel.setText(formattedTime);
+
+                    // Phân biệt sáng, trưa, chiều, tối
+                    int hour = currentDateTime.getHour();
+                    String period;
+                    if (hour >= 5 && hour < 12) {
+                        period = "Morning!";
+                    } else if (hour >= 12 && hour < 15) {
+                        period = "Noon!";
+                    } else if (hour >= 15 && hour < 19) {
+                        period = "Afternoon!";
+                    } else {
+                        period = "Evening!";
+                    }
+                    periodLabel.setText("Good " + period);
+                });
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        updateTimeThread.setDaemon(true);
+        updateTimeThread.start();
     }
 
     private void translateTransition(AnchorPane node, double fromX, double toX, double fromY, double toY) {
@@ -176,12 +226,11 @@ public class SceneController {
         parentPane.getChildren().setAll(childPane);
     }
 
-    public void displayTime() {
-        String str = String.format("%-19s" , dateTime.toString());
-        dateDisplay.setText(dateTime.toString());
-    }
+//    public void displayTime() {
+//        String str = String.format("%-19s" , dateTime.toString());
+//        dateDisplay.setText(dateTime.toString());
+//    }
     public void closeAllScene() {
         parentPane.getChildren().clear();
-        displayTime();
     }
 }

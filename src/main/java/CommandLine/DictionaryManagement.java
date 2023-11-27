@@ -25,8 +25,7 @@ public class DictionaryManagement {
 
     public static void insertFromFile() {
         try {
-            FileReader fileReader = new FileReader(filepath_read);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath_read));
             String englishWord = bufferedReader.readLine();
             englishWord = englishWord.replace("|", "");
             String line;
@@ -88,7 +87,7 @@ public class DictionaryManagement {
         for(int i = 0; i < Dictionary.getSize(); i++) {
             Word rand = Dictionary.getWordList().get(i);
             if(rand.getWordTarget().equals(wordTarget)) {
-                res.append(rand.getWordTarget()).append(" ").append(rand.getWordExplain());
+                res.append(rand.getWordTarget()).append("\n").append(rand.getWordExplain());
             }
         }
         return res.toString();

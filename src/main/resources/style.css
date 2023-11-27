@@ -1,6 +1,11 @@
 @font-face {
     src: url("Font/Leyton.ttf");
 }
+
+@font-face {
+    src: url("Font/verdana.ttf");
+}
+
 .anchor-pane-1 {
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
@@ -68,12 +73,15 @@
     -fx-background-color: #8B8989; /* Màu nền khi button được nhấn */
 }
 
-
-
 .text_area {
+    -fx-font-family: "Verdana";
     -fx-font-size: 14px;
     -fx-pref-width: 320px;
     -fx-pref-height: 200px;
+}
+
+.text_field {
+    -fx-font-family: "Verdana";
 }
 
 .title-label {
@@ -91,14 +99,10 @@
 }
 
 .time-label {
-    -fx-font-weight: bold;
-    -fx-font-size: 30px;
-    -fx-text-fill: black;
-    -fx-pref-width: 600px;
-    -fx-pref-height: 100px;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 16px;
+    -fx-text-fill: Black;
     -fx-alignment: center;
     -fx-text-alignment: center;
-    -fx-translate-x: 50%;
-    -fx-translate-y: 50%;
-    -fx-transform: translate(-50%, -50%);
+    -fx-text-border: gold;
 }
