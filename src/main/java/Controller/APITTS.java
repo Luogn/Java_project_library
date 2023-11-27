@@ -3,6 +3,12 @@ package Controller;
 import com.google.gson.*;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,13 +20,12 @@ public class APITTS {
         try {
             String API = String.format("https://api.dictionaryapi.dev/api/v2/entries/en/%s", URLEncoder.encode(word, "UTF-8"));
 
-            HttpClient httpClient = HttpClient.newBuilder().build();
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(API)).build();
+            HttpClient httpClient = HttpClients.createDefault();
+            HttpGet request = new HttpGet(API);
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-//            System.out.println(response.body());
+            HttpResponse response = httpClient.execute(request);
                 // Xử lý dữ liệu JSON
-                String jsonResponse = (String) response.body();
+                String jsonResponse = EntityUtils.toString(response.getEntity());
                 // Gọi hàm để phân tích và lấy URL phát âm từ JSON
                 String audioUrl = getAudioUrlFromJson(jsonResponse);
                 // Gọi hàm để phát âm từ
@@ -31,7 +36,7 @@ public class APITTS {
 //                    System.out.printf("%s%",audioUrl);
                     System.out.println("không có audioUrl");
                 }
-        } catch (IOException | InterruptedException | LineUnavailableException | UnsupportedAudioFileException e) {
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
         }
