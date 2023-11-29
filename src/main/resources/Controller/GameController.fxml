@@ -14,7 +14,7 @@
          </font>
       </Text>
       <TextField fx:id="Guess" layoutX="541.0" layoutY="134.0" />
-      <Text fx:id="TextForWord" layoutX="533.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output a Word">
+      <Text fx:id="TextForWord" layoutX="532.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output a Word">
          <font>
             <Font size="25.0" />
          </font>
@@ -24,8 +24,12 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="541.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TextInput" />
-      <Button layoutX="591.0" layoutY="193.0" mnemonicParsing="false" onAction="#getTextInput" style="-fx-background-color: orange;" styleClass="button2" stylesheets="@../style.css" text="Check" textFill="WHITE" />
+      <Button layoutX="576.0" layoutY="180.0" mnemonicParsing="false" onAction="#getTextInput" style="-fx-background-color: orange;" styleClass="button2" stylesheets="@../style.css" text="Check" textFill="WHITE" />
       <Button layoutX="706.0" layoutY="433.0" mnemonicParsing="false" onAction="#reset" style="-fx-background-color: orange;" styleClass="button2" stylesheets="@../style.css" text="Reset" textFill="WHITE" />
+      <Text fx:id="scoreText" layoutX="691.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Score" wrappingWidth="60.009765625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
