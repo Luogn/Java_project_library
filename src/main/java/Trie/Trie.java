@@ -58,16 +58,6 @@ public class Trie {
         return false;
     }
 
-    public boolean startsWith(String prefix) {
-        TrieNode node = root;
-        for (char c : prefix.toCharArray()) {
-            if (!node.children.containsKey(c)) {
-                return false;
-            }
-            node = node.children.get(c);
-        }
-        return true;
-    }
 
     public List<String> getAllWordsWithPrefix(String prefix) {
         List<String> result = new ArrayList<>();

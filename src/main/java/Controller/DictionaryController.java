@@ -53,6 +53,7 @@ public class DictionaryController implements Initializable {
 
     @FXML
     Button buttonInsert = new Button();
+
     @FXML
     Button deletehistory = new Button();
 
@@ -146,6 +147,9 @@ public class DictionaryController implements Initializable {
         insertPane.setVisible(checkInsert.isVisible());
         fadeInTransition(insertPane);
         checkUpdated.setVisible(false);
+        deletehistory.setVisible(false);
+        history.setVisible(false);
+
     }
 
     public void doneInsert() {
@@ -160,6 +164,8 @@ public class DictionaryController implements Initializable {
         my_textarea.setEditable(true);
         checkUpdated.setVisible(true);
         insertPane.setVisible(false);
+        deletehistory.setVisible(false);
+        history.setVisible(false);
     }
 
     public void doneUpdate() {
