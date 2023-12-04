@@ -20,10 +20,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class DictionaryController implements Initializable {
     @FXML
@@ -170,7 +167,7 @@ public class DictionaryController implements Initializable {
     }
 
     public void Historyword() throws IOException {
-        List<String> data_list = new ArrayList<>();
+        Set<String> data_list = new LinkedHashSet<>();
 
         BufferedReader reader = null;
         try {
@@ -187,12 +184,14 @@ public class DictionaryController implements Initializable {
                 throw new RuntimeException(e);
             }
             data_list.add(line);
-            Collections.reverse(data_list);
+
         }
+        List<String> datalist = new ArrayList<>(data_list);
+        Collections.reverse(datalist);
         reader.close();
-        history.getItems().setAll(data_list);
+        history.getItems().setAll(datalist);
         history.setVisible(!history.isVisible());
-        deletehistory.setVisible(true);
+        deletehistory.setVisible(history.isVisible());
     }
         public void setDeletehistory() {
         String filePath = "src\\main\\resources\\Neccessary\\historyword.txt";
