@@ -102,10 +102,10 @@ public class GameController implements Initializable {
             Path path = Paths.get("src\\main\\resources\\Neccessary\\historyword.txt");
             List<String> words = Files.readAllLines(path);
             if (!words.isEmpty()) {
-                int randomIndex = new Random().nextInt(words.size());
+                int randomIndex = new Random().nextInt(words.size()); // check xem file history co chua tu hay khong
                 return words.get(randomIndex);
             } else {
-                return "defaults";
+                return "default";
             }
         }
         catch (IOException e) {
