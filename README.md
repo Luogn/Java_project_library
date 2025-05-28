@@ -12,15 +12,15 @@ Dự án cung cấp các chức năng chính sau:
 
 ## Công nghệ sử dụng
 
-* **Ngôn ngữ chính:** Java [cite: 1]
-* **Styling Giao diện:** CSS [cite: 1]
+* **Ngôn ngữ chính:** Java 
+* **Styling Giao diện:** CSS 
 * **Build Tool:** Apache Maven
 
 ## Cấu trúc thư mục/mã nguồn
 
-* `pom.xml`: File cấu hình dự án cho Apache Maven, quản lý các dependency và quá trình build. [cite: 1]
-* `src/main/`: Thư mục chứa mã nguồn chính của ứng dụng Java và các tài nguyên liên quan. [cite: 1]
-* `.gitignore`: File định nghĩa các tệp và thư mục mà Git nên bỏ qua. [cite: 1]
+* `pom.xml`: File cấu hình dự án cho Apache Maven, quản lý các dependency và quá trình build. 
+* `src/main/`: Thư mục chứa mã nguồn chính của ứng dụng Java và các tài nguyên liên quan. 
+* `.gitignore`: File định nghĩa các tệp và thư mục mà Git nên bỏ qua. 
 
 ## Cách cài đặt và chạy dự án
 
